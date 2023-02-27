@@ -11,14 +11,12 @@ import com.google.android.material.color.DynamicColors;
 import ru.tabiin.ramadan.databinding.ActivityMainBinding;
 import ru.tabiin.ramadan.ui.about_app.AppAboutFragment;
 import ru.tabiin.ramadan.ui.post.PostRamadanFragment;
-import ru.tabiin.ramadan.ui.post.RamadanPostFragment;
 import ru.tabiin.ramadan.util.SharedPreferencesUtils;
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
 
     AppAboutFragment appAboutFragment;
-    RamadanPostFragment ramadanPostFragment;
     PostRamadanFragment postRamadanFragment;
 
     @Override
@@ -32,30 +30,27 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         appAboutFragment = new AppAboutFragment();
-        ramadanPostFragment = new RamadanPostFragment();
         postRamadanFragment = new PostRamadanFragment();
 
-        changeFragment(this,
-                ramadanPostFragment,
-                R.id.containerFragment,
-                savedInstanceState);
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.containerFragment, new PostRamadanFragment())
+                        .commit();
 
         binding.navView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.post:
-                    changeFragment(this,
-                            postRamadanFragment,
-                            R.id.containerFragment,
-                            savedInstanceState);
+
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.containerFragment, new PostRamadanFragment())
+                            .commit();
 
                     return true;
 
                 case R.id.about_app:
-                    changeFragment(this,
-                            appAboutFragment,
-                            R.id.containerFragment,
-                            savedInstanceState);
 
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.containerFragment, new AppAboutFragment())
+                            .commit();
                     return true;
             }
             return false;
