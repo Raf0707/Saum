@@ -10,6 +10,7 @@ import com.google.android.material.color.DynamicColors;
 
 import ru.tabiin.ramadan.databinding.ActivityMainBinding;
 import ru.tabiin.ramadan.ui.about_app.AppAboutFragment;
+import ru.tabiin.ramadan.ui.dua.DuaFragment;
 import ru.tabiin.ramadan.ui.post.PostRamadanFragment;
 import ru.tabiin.ramadan.util.SharedPreferencesUtils;
 
@@ -42,6 +43,14 @@ public class MainActivity extends AppCompatActivity {
 
                     getSupportFragmentManager().beginTransaction()
                             .replace(R.id.containerFragment, new PostRamadanFragment())
+                            .commit();
+
+                    return true;
+
+                case R.id.dua:
+
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.containerFragment, new DuaFragment())
                             .commit();
 
                     return true;

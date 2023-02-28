@@ -30,7 +30,6 @@ import com.google.android.material.snackbar.Snackbar;
 import ru.tabiin.ramadan.BuildConfig;
 import ru.tabiin.ramadan.R;
 import ru.tabiin.ramadan.databinding.FragmentAppAboutBinding;
-import ru.tabiin.ramadan.ui.post.RamadanPostFragment;
 import ru.tabiin.ramadan.ui.settings.SettingsFragment;
 import ru.tabiin.ramadan.util.BugReportHelper;
 import ru.tabiin.ramadan.util.CustomTabUtil;

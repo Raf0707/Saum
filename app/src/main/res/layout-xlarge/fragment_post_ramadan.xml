@@ -414,8 +414,10 @@
 
     <com.google.android.material.progressindicator.LinearProgressIndicator
         android:id="@+id/postRamadanProgressBar"
-        android:layout_width="240dp"
-        android:layout_height="37dp"
+        android:layout_width="match_parent"
+        android:layout_height="67dp"
+        android:layout_marginRight="80dp"
+        android:layout_marginLeft="80dp"
         android:indeterminateTint="#12705a"
         android:indeterminate="false"
         app:trackThickness="4dp"
