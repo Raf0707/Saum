@@ -198,23 +198,18 @@ public class AppAboutFragment extends Fragment {
                     savedInstanceState);
         });
 
-        binding.bugReport.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    BugReportHelper.sendEmail(getActivity());
-                } catch (Exception e) {
-                    Snackbar.make(v, "Не установлен клиент E-Mail",
-                            Snackbar.LENGTH_SHORT)
-                            .setAction("Установить", new View.OnClickListener() {
-                                @Override
-                                public void onClick(View view) {
-                                    // установить приложение из гугл-плей
-                                }
-                            })
-                            .show();
-                    e.printStackTrace();
-                }
+        binding.bugReport.setOnClickListener(v -> {
+            try {
+                BugReportHelper.sendEmail(getActivity());
+            } catch (Exception e) {
+                Snackbar.make(v, "Не установлен клиент E-Mail",
+                        Snackbar.LENGTH_SHORT)
+                        .setAction("Установить", vi -> new CustomTabUtil()
+                            .openCustomTab(getActivity(),
+                                    "https://play.google.com/store/apps/details?id=ru.mail.mailapp",
+                                    R.color.purple_300))
+                        .show();
+                e.printStackTrace();
             }
         });
 
@@ -222,8 +217,16 @@ public class AppAboutFragment extends Fragment {
                 "https://www.donationalerts.com/r/raf0707", R.color.md_theme_light_onSecondary));
 
         binding.tgGroupBtn.setOnClickListener(v -> new CustomTabUtil()
-                .openCustomTab(getActivity(), "https://t.me/+Lkw3ON0EsjZlNDIy",
+                .openCustomTab(getActivity(), "https://t.me/+QTIZZFhT__ZjMmFi",
                         R.color.md_theme_light_onSecondary));
+
+        binding.tgGroupBtn.setOnLongClickListener(v -> {
+            addOnClick(v, getString(R.string.tg_tabiin_coyplink),
+                    ClipData.newPlainText(getString(R.string.getContext),
+                            getString(R.string.tgLink)));
+            return true;
+        });
+
 
     }
 
