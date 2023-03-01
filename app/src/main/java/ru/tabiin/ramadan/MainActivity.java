@@ -24,6 +24,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.containerFragment, new PostRamadanFragment())
+                    .commit();
+        }
+
         if (SharedPreferencesUtils.getBoolean(this, "useDynamicColors"))
             DynamicColors.applyToActivityIfAvailable(this);
 
@@ -32,10 +38,6 @@ public class MainActivity extends AppCompatActivity {
 
         appAboutFragment = new AppAboutFragment();
         postRamadanFragment = new PostRamadanFragment();
-
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.containerFragment, new PostRamadanFragment())
-                        .commit();
 
         binding.navView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {

@@ -186,6 +186,7 @@ public class PostRamadanFragment extends Fragment implements View.OnClickListene
             itog.setText(Integer.toString(countCheck));
             postProgressBar.setProgress(countCheck);
         }
+
     }
 
     @Override
@@ -195,6 +196,7 @@ public class PostRamadanFragment extends Fragment implements View.OnClickListene
                 if (countCheck != 0 && itog.getText().toString() != "0") onAlert();
                 break;
         }
+
     }
 
     public void saveText() {
@@ -202,7 +204,7 @@ public class PostRamadanFragment extends Fragment implements View.OnClickListene
         SharedPreferences.Editor ed = sPreff.edit();
 
         ed.putBoolean("c1", c1.isChecked());
-        ed.putBoolean("c2", c1.isChecked());
+        ed.putBoolean("c2", c2.isChecked());
         ed.putBoolean("c3", c3.isChecked());
         ed.putBoolean("c4", c4.isChecked());
         ed.putBoolean("c5", c5.isChecked());
@@ -331,6 +333,36 @@ public class PostRamadanFragment extends Fragment implements View.OnClickListene
                         (dialogInterface, i) ->
                                 dialogInterface.cancel())
                 .show();
+    }
+
+
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        saveText();
+        loadText();
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    public void onStop() {
+        saveText();
+        loadText();
+        super.onStop();
+    }
+
+    @Override
+    public void onPause() {
+        saveText();
+        loadText();
+        super.onPause();
+    }
+
+    @Override
+    public void onDestroyView() {
+        saveText();
+        loadText();
+        super.onDestroyView();
     }
 
     @Override

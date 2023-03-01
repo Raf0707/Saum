@@ -198,7 +198,25 @@ public class AppAboutFragment extends Fragment {
                     savedInstanceState);
         });
 
-        binding.bugReport.setOnClickListener(v -> BugReportHelper.sendEmail(getActivity()));
+        binding.bugReport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    BugReportHelper.sendEmail(getActivity());
+                } catch (Exception e) {
+                    Snackbar.make(v, "Не установлен клиент E-Mail",
+                            Snackbar.LENGTH_SHORT)
+                            .setAction("Установить", new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    // установить приложение из гугл-плей
+                                }
+                            })
+                            .show();
+                    e.printStackTrace();
+                }
+            }
+        });
 
         binding.donateBtn.setOnClickListener(v -> new CustomTabUtil().openCustomTab(getActivity(),
                 "https://www.donationalerts.com/r/raf0707", R.color.md_theme_light_onSecondary));
