@@ -168,7 +168,7 @@
                             android:id="@+id/duaIftar1Title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Дуа ифтар"
+                            android:text="Дуа ифтар №1"
                             android:textSize="24sp"
                             android:textStyle="bold" />
 
@@ -237,7 +237,7 @@
                             android:id="@+id/duaIftar2Title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Дуа ифтар"
+                            android:text="Дуа ифтар №2"
                             android:textSize="24sp"
                             android:textStyle="bold" />
 
@@ -306,7 +306,7 @@
                             android:id="@+id/duaIftar3Title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Дуа ифтар"
+                            android:text="Дуа ифтар №3"
                             android:textSize="24sp"
                             android:textStyle="bold" />
 
@@ -375,7 +375,7 @@
                             android:id="@+id/duaIftar4Title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Дуа ифтар"
+                            android:text="Дуа ифтар №4"
                             android:textSize="24sp"
                             android:textStyle="bold" />
 
@@ -444,7 +444,7 @@
                             android:id="@+id/duaIftar5Title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Дуа ифтар"
+                            android:text="Дуа ифтар №5"
                             android:textSize="24sp"
                             android:textStyle="bold" />
 
@@ -513,7 +513,7 @@
                             android:id="@+id/duaIftar6Title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Дуа ифтар"
+                            android:text="Дуа ифтар №6"
                             android:textSize="24sp"
                             android:textStyle="bold" />
 
@@ -582,7 +582,7 @@
                             android:id="@+id/duaIftar7Title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Дуа ифтар"
+                            android:text="Дуа ифтар №7"
                             android:textSize="24sp"
                             android:textStyle="bold" />
 
