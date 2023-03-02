@@ -33,12 +33,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <com.google.android.material.radiobutton.MaterialRadioButton
-                    android:id="@+id/setAutoTheme"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/auto_theme"
-                    android:textSize="18sp"/>
-                <com.google.android.material.radiobutton.MaterialRadioButton
                     android:id="@+id/setFollowSystemTheme"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

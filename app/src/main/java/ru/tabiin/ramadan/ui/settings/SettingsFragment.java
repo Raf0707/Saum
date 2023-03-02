@@ -38,12 +38,6 @@ public class SettingsFragment extends Fragment {
         binding.appThemeRadioGroup.check(SharedPreferencesUtils.getInteger(requireContext(), "checkedButton", R.id.setFollowSystemTheme));
         binding.appThemeRadioGroup.setOnCheckedChangeListener((group, checkedId) -> {
             switch (checkedId) {
-                case R.id.setAutoTheme:
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
-                    SharedPreferencesUtils.saveInteger(requireContext(), "checkedButton", R.id.setAutoTheme);
-                    SharedPreferencesUtils.saveInteger(requireContext(), "nightMode", 0);
-                    requireActivity().recreate();
-                    break;
                 case R.id.setFollowSystemTheme:
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
                     SharedPreferencesUtils.saveInteger(requireContext(), "checkedButton", R.id.setFollowSystemTheme);

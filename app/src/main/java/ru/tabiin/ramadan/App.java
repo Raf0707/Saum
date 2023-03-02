@@ -24,10 +24,10 @@ public class App extends Application {
 
     public void setNightMode() {
         int nightMode = SharedPreferencesUtils.getInteger(this, "nightMode", 1);
-        int[] mode = {AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY,
+        int[] mode = {
                 AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM,
                 AppCompatDelegate.MODE_NIGHT_NO,
-                AppCompatDelegate.MODE_NIGHT_YES, R.style.Theme_AppCompat_RedTheme,};
+                AppCompatDelegate.MODE_NIGHT_YES};
         AppCompatDelegate.setDefaultNightMode(mode[nightMode]);
     }
 }
