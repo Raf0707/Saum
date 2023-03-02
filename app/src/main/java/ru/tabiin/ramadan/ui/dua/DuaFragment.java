@@ -28,7 +28,6 @@ public class DuaFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentDuaBinding.inflate(getLayoutInflater());
 
-
         binding.duaSuhur.setOnClickListener(v -> {
             ClipboardManager clipboard = (ClipboardManager)
                     v.getContext().getSystemService(Context.CLIPBOARD_SERVICE);
@@ -183,4 +182,6 @@ public class DuaFragment extends Fragment {
 
         return binding.getRoot();
     }
+
+
 }

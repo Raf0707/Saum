@@ -33,22 +33,34 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <com.google.android.material.radiobutton.MaterialRadioButton
-                    android:id="@+id/followSystemNightModeRadioButton"
+                    android:id="@+id/setAutoTheme"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/auto_theme"
+                    android:textSize="18sp"/>
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/setFollowSystemTheme"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Follow system"
                     android:textSize="18sp"/>
                 <com.google.android.material.radiobutton.MaterialRadioButton
-                    android:id="@+id/noNightModeRadioButton"
+                    android:id="@+id/setLightTheme"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Light mode"
                     android:textSize="18sp"/>
                 <com.google.android.material.radiobutton.MaterialRadioButton
-                    android:id="@+id/nightModeRadioButton"
+                    android:id="@+id/setNightTheme"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Night mode"
+                    android:textSize="18sp"/>
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/setRedTheme"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Red mode"
                     android:textSize="18sp"/>
             </RadioGroup>
 

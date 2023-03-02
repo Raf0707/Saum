@@ -3,8 +3,10 @@ package ru.tabiin.ramadan;
 import static ru.tabiin.ramadan.util.UtilFragment.changeFragment;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.splashscreen.SplashScreen;
 
 import android.os.Bundle;
+import android.view.Window;
 
 import com.google.android.material.color.DynamicColors;
 
@@ -23,6 +25,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        App.instance.setNightMode();
+        SplashScreen splashScreen = SplashScreen.installSplashScreen(this);
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
