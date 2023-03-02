@@ -14,6 +14,7 @@ import com.google.android.material.color.DynamicColors;
 
 import ru.tabiin.ramadan.R;
 import ru.tabiin.ramadan.databinding.FragmentSettingsBinding;
+import ru.tabiin.ramadan.ui.about_app.AppAboutFragment;
 import ru.tabiin.ramadan.util.SharedPreferencesUtils;
 
 public class SettingsFragment extends Fragment {
@@ -66,6 +67,12 @@ public class SettingsFragment extends Fragment {
                     R.style.Theme_Ramadan);
             SharedPreferencesUtils.saveBoolean(requireContext(), "useDynamicColors", isChecked);
             requireActivity().recreate();
+        });
+
+        binding.backFromSettingsFragment.setOnClickListener(v -> {
+            getFragmentManager().beginTransaction()
+                    .replace(R.id.containerFragment, new AppAboutFragment())
+                    .commit();
         });
 
     }
