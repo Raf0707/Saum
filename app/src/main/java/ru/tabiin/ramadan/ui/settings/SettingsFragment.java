@@ -62,14 +62,6 @@ public class SettingsFragment extends Fragment {
                     SharedPreferencesUtils.saveInteger(requireContext(), "nightMode", 3);
                     requireActivity().recreate();
                     break;
-                case R.id.setRedTheme:
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
-                    getActivity().getApplication().setTheme(R.style.Theme_AppCompat_RedTheme);
-                    SharedPreferencesUtils.saveInteger(requireContext(), "checkedButton", R.id.setNightTheme);
-                    SharedPreferencesUtils.saveInteger(requireContext(), "nightMode", 3);
-                    requireActivity().recreate();
-                    //Theme.Material3.DynamicColors.Light
-                    break;
             }
         });
 

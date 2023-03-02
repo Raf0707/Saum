@@ -31,7 +31,7 @@
         <item name="colorPrimaryInverse">@color/md_theme_dark_inversePrimary</item>
     </style>
 
-    <style name="Theme.AppCompat.RedTheme" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Theme.AppCompat.RedTheme" parent="Theme.Material3.DynamicColors.Light">
         <item name="colorPrimary">@color/red_theme_dark_primary</item>
         <item name="colorOnPrimary">@color/red_theme_dark_onPrimary</item>
         <item name="colorPrimaryContainer">@color/red_theme_dark_primaryContainer</item>
