@@ -1,0 +1,763 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bannerContainerFragment"
+    android:tag="bannerContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.dua.DuaFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollZickr"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="24dp"
+                app:cardUseCompatPadding="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.026"
+                app:strokeColor="@color/purple_300">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <!-- Title, secondary and supporting text -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="دعاء الإفطار والسحور"
+                            
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Ду'а на ифтар и сухур"
+                            
+                            android:textSize="24sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/duaSuhur"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="24dp"
+                app:cardUseCompatPadding="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.026"
+                app:strokeColor="@color/purple_300">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <!-- Title, secondary and supporting text -->
+                        <TextView
+                            android:id="@+id/duaSuhurTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Дуа сухура"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/duaSuhurArabic"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:text="نَوَيْتُ أَنْ أَصُومَ صَوْمَ شَهْرِ رَمَضَانَ مِنَ الْفَجْرِ إِلَى الْمَغْرِبِ خَالِصًا لِلَّهِ تَعَالَى"
+                            android:textStyle="bold"
+                            android:textSize="24sp" />
+
+                        <TextView
+                            android:id="@+id/duaSuhurTranscript"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Транскрипция: \n Навайту ан асуума саума шахри рамадаана миналь-фаджри иляль-магриби хаалисан лилляяхи та'ааляя"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/duaSuhurTranslate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Перевод: Ради Всевышнего Аллаха я искренне намерился соблюдать пост месяца Рамазан от рассвета до заката"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/duaIftar1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="24dp"
+                app:cardUseCompatPadding="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.026"
+                app:strokeColor="@color/purple_300">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <!-- Title, secondary and supporting text -->
+                        <TextView
+                            android:id="@+id/duaIftar1Title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Дуа ифтар №1"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/duaIftar1Arabic"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:text="اَللَّهُمَّ لَكَ صُمْتُ وَ عَلَى رِزْقِكَ أَفْطَرْتُ"
+                            android:textStyle="bold"
+                            android:textSize="24sp" />
+
+                        <TextView
+                            android:id="@+id/duaIftar1Transcript"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Транскрипция: \n Аллахумма лякя сумту уа 'аля ризкыкя афтарту"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/duaIftar1Translate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Перевод: О мой Господь, я постился для Тебя (ради Твоего довольства мною) и, используя Твои блага, разговелся"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/duaIftar2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="24dp"
+                app:cardUseCompatPadding="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.026"
+                app:strokeColor="@color/purple_300">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <!-- Title, secondary and supporting text -->
+                        <TextView
+                            android:id="@+id/duaIftar2Title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Дуа ифтар №2"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/duaIftar2Arabic"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:text="ذَهَبَ الظَّمأُ، وابْتَلَّتِ العُرُوقُ، وَثَبَتَ الأجْرُ إِنْ شاءَ اللَّهُ تَعالىُ"
+                            android:textStyle="bold"
+                            android:textSize="24sp" />
+
+                        <TextView
+                            android:id="@+id/duaIftar2Transcript"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Транскрипция: \n Захаба-з-замау, ва-бталляти-ль-'уруку, ва сабата-ль-аджру ин ша’а-Ллаху Та'аля"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/duaIftar2Translate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Перевод: Ушла жажда, жилы наполнились влагой, и награда уже ждёт, если будет угодно Всевышнему Аллаху"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/duaIftar3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="24dp"
+                app:cardUseCompatPadding="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.026"
+                app:strokeColor="@color/purple_300">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <!-- Title, secondary and supporting text -->
+                        <TextView
+                            android:id="@+id/duaIftar3Title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Дуа ифтар №3"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/duaIftar3Arabic"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:text="الحَمْدُ لِلَّهِ الَّذي أعانَنِي فَصَمْتُ، وَرَزَقَنِي فأفْطَرْتُُ"
+                            android:textStyle="bold"
+                            android:textSize="24sp" />
+
+                        <TextView
+                            android:id="@+id/duaIftar3Transcript"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Транскрипция: \n Аль-хамду ли-Лляхи ллязи а'ана-ни фа-сумту, ва разака-ни фа-афтарту"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/duaIftar3Translate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Перевод: Хвала Аллаху, Который помог мне, благодаря чему я соблюдал пост, и даровал мне средства к существованию, благодаря чему я разговелся"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/duaIftar4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="24dp"
+                app:cardUseCompatPadding="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.026"
+                app:strokeColor="@color/purple_300">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <!-- Title, secondary and supporting text -->
+                        <TextView
+                            android:id="@+id/duaIftar4Title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Дуа ифтар №4"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/duaIftar4Arabic"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:text="اَللَّهُمَّ لَكَ صُمْتُ وَ عَلَى رِزْقِكَ أَفْطَرْتُ وَ عَلَيْكَ تَوَكَّلْتُ وَ بِكَ آمَنْتُ. يَا وَاسِعَ الْفَضْلِ اغْفِرْ لِي. اَلْحَمْدُ ِللهِ الَّذِي أَعَانَنِي فَصُمْتُ وَ رَزَقَنِي فَأَفْطَرْتُُُ"
+                            android:textStyle="bold"
+                            android:textSize="24sp" />
+
+                        <TextView
+                            android:id="@+id/duaIftar4Transcript"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Транскрипция: \n Аллаахумма лякя сумту ва 'аляя ризкыкя афтарту ва 'аляйкя таваккяльту ва бикя аамант. Йа вааси'аль-фадли-гфир лий. Аль-хамду лил-ляяхил-лязии а'аанани фа сумту ва разакани фа афтарт"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/duaIftar4Translate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Перевод: О мой Господь, я постился для Тебя (ради Твоего довольства мною) и, используя Твои блага, разговелся. На Тебя надеюсь и в Тебя верю. Прости меня, о Тот, Чья милость безгранична. Хвала Всевышнему, Который помог мне поститься и накормил меня, когда я разговлялся"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/duaIftar5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="24dp"
+                app:cardUseCompatPadding="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.026"
+                app:strokeColor="@color/purple_300">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <!-- Title, secondary and supporting text -->
+                        <TextView
+                            android:id="@+id/duaIftar5Title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Дуа ифтар №5"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/duaIftar5Arabic"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:text="اَللَّهُمَّ لَكَ صُمْتُ وَ بِكَ آمَنْتُ وَ عَلَيْكَ تَوَكَّلْتُ وَ عَلَى رِزْقِكَ أَفْطَرْتُ. فَاغْفِرْ لِي يَا غَفَّارُ مَا قَدَّمْتُ وَ مَا أَخَّرْتُُُ"
+                            android:textStyle="bold"
+                            android:textSize="24sp" />
+
+                        <TextView
+                            android:id="@+id/duaIftar5Transcript"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Транскрипция: \n Аллаахумма ляка сумту уа бика аманту уа галяйка тауаккальту уа галяя ризкыйка афтарту фагфирлии йаа гаффаару ма каддамту уа маа аххарту"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/duaIftar5Translate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Перевод: О, Аллах, только ради Тебя я постился, в Тебя уверовал, на Тебя положился и Твоим питанием разговелся. О Прощающий, прости мои прошлые и будущие грехи"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/duaIftar6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="24dp"
+                app:cardUseCompatPadding="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.026"
+                app:strokeColor="@color/purple_300">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <!-- Title, secondary and supporting text -->
+                        <TextView
+                            android:id="@+id/duaIftar6Title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Дуа ифтар №6"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/duaIftar6Arabic"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:text="اللَّهُمَّ إني أسألُكَ بِرَحْمَتِكَ الَّتِي وَسِعَتْ كل شئ أنْ تَغْفِرَ ليُُُ"
+                            android:textStyle="bold"
+                            android:textSize="24sp" />
+
+                        <TextView
+                            android:id="@+id/duaIftar6Transcript"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Транскрипция: \n Аллахумма, инни ас’алю-кя би-рахмати-кя-лляти васи'ат кулля шай’ин ан тагфира ли"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/duaIftar6Translate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Перевод: О Аллах, поистине, я прошу Тебя посредством Твоей милости, которая объемлет всё, простить меня"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/duaIftar7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="24dp"
+                app:cardUseCompatPadding="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.026"
+                app:strokeColor="@color/purple_300">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <!-- Title, secondary and supporting text -->
+                        <TextView
+                            android:id="@+id/duaIftar7Title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Дуа ифтар №7"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/duaIftar7Arabic"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:text="اللَّهُمَّ لَكَ صُمْنا، وَعلى رِزْقِكَ أَفْطَرْنا، فَتَقَبَّلْ مِنَّا إنَّكَ أنْتَ السَّمِيعُ العَلِيمُُُُ"
+                            android:textStyle="bold"
+                            android:textSize="24sp" />
+
+                        <TextView
+                            android:id="@+id/duaIftar7Transcript"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Транскрипция: \n Аллахумма, ля-кя сумна ва ‘аля ризки-кя афтарна, фа-такаббаль мин-на, инна-кя Анта-с-Сами‘у-ль-ль-‘Алим"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/duaIftar7Translate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Перевод: О Аллах, ради Тебя мы постились и дарованным Тобой пропитанием разговелись, прими же это от нас, поистине, Ты Слышащий, Знающий"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/duaQadarNight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="24dp"
+                app:cardUseCompatPadding="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.026"
+                app:strokeColor="@color/purple_300">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <!-- Title, secondary and supporting text -->
+                        <TextView
+                            android:id="@+id/duaQadarNightTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Дуа Ночи предопределения"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/duaQadarNightArabic"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:text="اللَّهُمَّ إِنَّكَ عَفُوٌّ كَرِيمٌ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي"
+                            android:textStyle="bold"
+                            android:textSize="24sp" />
+
+                        <TextView
+                            android:id="@+id/duaQadarNightTranscript"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Транскрипция: \n Аллахумма иннакя 'афуввун тухыббуль 'аффуа фа'фуанни"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/duaQadarNightTranslate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Перевод: О, Аллах! Ты – Прощающий, и любишь прощать. Прости же меня"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/duaTarawih"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="24dp"
+                app:cardUseCompatPadding="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.026"
+                app:strokeColor="@color/purple_300">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <!-- Title, secondary and supporting text -->
+                        <TextView
+                            android:id="@+id/duaTarawihTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Дуа таравих-намаза"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/duaTarawihArabic"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:text="سُبْحَانَ ذِى الْمُلْكِ وَالْمَلَكُوتِ سُبْحَانَ ذِى الْعِزَّةِ وَالْعَظَمَةِ وَالْقُدُرَةِ وَالْكِبْرِيَآءِ وَالْجَبَرُوتِ سُبْحَانَ الْمَلِكِ الْحَىِّ الَّذِى لَا يَمُوتُ سُبُّوحٌ قُدُّوسٌ رَبُّ الْمَلَآئِكَةِ وَالرُّوحِ لَا إِلَهَ إِلَّا اللهُ نَسْتَغْفِرُ اللهَ نَسْئَلُكَ الْجَنَّةَ وَنَعُوذُ بِكَ مِنَ النَّارِ"
+                            android:textStyle="bold"
+                            android:textSize="24sp" />
+
+                        <TextView
+                            android:id="@+id/duaTarawihTranscript"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Транскрипция: \n Субхаана з̣иль-мульки уаль-малякуут. Субхаана з̣иль-'иззати уаль-'аз̣амати уаль-кудурати уаль-кибрийааа’и уаль-джабаруут. Субхааналь-маликиль-хаййиль-ляз̣ии ляя йамуут. Суббуухун куддуусур-раббуль-маляяя’икати уар-руух. Ляя иляяха иль-ля Ллааху настагъфирул-лаах. Нас’алюкаль-джанната уа на'ууз̣у бика минан-наар"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/duaTarawihTranslate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Перевод: Слава Обладателю власти над всем сотворенным на земле. Слава Обладателю величия и могущества. Слава Царю, Живому, Который никогда не умрет. Он Хвалимый, Святой и Господин ангелов и Джабраиля. Нет божества, кроме Аллаха, мы просим прощения у Аллаха. Мы просим у Тебя Рая и прибегаем к Тебе от Ада"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
