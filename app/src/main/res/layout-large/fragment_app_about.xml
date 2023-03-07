@@ -65,7 +65,7 @@
                                     android:layout_height="50dp"
                                     android:gravity="center"
                                     android:text="Ramadan"
-                                    android:textSize="40sp"
+                                    android:textSize="30sp"
                                     android:textStyle="bold" />
 
                                 <TextView
@@ -73,7 +73,7 @@
                                     android:layout_height="50dp"
                                     android:gravity="center"
                                     android:text="@string/from_tabiin"
-                                    android:textSize="40sp"
+                                    android:textSize="30sp"
                                     android:textStyle="bold" />
                             </LinearLayout>
                         </LinearLayout>
@@ -91,7 +91,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="@string/version"
                                 android:textAlignment="textStart"
-                                android:textSize="40sp"
+                                android:textSize="30sp"
                                 app:icon="@drawable/ic_baseline_error_outline_24"
                                 app:iconPadding="16dp"
                                 app:iconSize="36dp" />
@@ -103,7 +103,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="@string/source_code"
                                 android:textAlignment="textStart"
-                                android:textSize="40sp"
+                                android:textSize="30sp"
                                 app:icon="@drawable/ic_baseline_code_24"
                                 app:iconPadding="16dp"
                                 app:iconSize="36dp" />
@@ -115,7 +115,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Поддержать автора"
                                 android:textAlignment="textStart"
-                                android:textSize="40sp"
+                                android:textSize="30sp"
                                 app:icon="@drawable/baseline_donate_on_24"
                                 app:iconPadding="16dp"
                                 app:iconSize="36dp" />
@@ -147,7 +147,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="@string/Raf_title"
-                                android:textSize="40sp"
+                                android:textSize="30sp"
                                 app:icon="@drawable/ic_baseline_person_24"
                                 app:iconPadding="16dp"
                                 app:iconSize="36dp"
@@ -159,7 +159,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="@string/raf_android_dev_mail_ru"
-                                android:textSize="40sp"
+                                android:textSize="30sp"
                                 app:icon="@drawable/baseline_alternate_email_24"
                                 app:iconPadding="16dp"
                                 app:iconSize="36dp"
@@ -171,20 +171,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Оценить приложение"
-                                android:textSize="40sp"
+                                android:textSize="30sp"
                                 app:icon="@drawable/ic_baseline_rate_review_24"
-                                app:iconPadding="16dp"
-                                app:iconSize="36dp"
-                                android:textAlignment="textStart"
-                                style="@style/Widget.Material3.Button.TextButton" />
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/bugReport"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="Сообщить об ошибке"
-                                android:textSize="40sp"
-                                app:icon="@drawable/baseline_bug_report_24"
                                 app:iconPadding="16dp"
                                 app:iconSize="36dp"
                                 android:textAlignment="textStart"
@@ -197,7 +185,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Мы в VK"
                                 android:textAlignment="textStart"
-                                android:textSize="40sp"
+                                android:textSize="30sp"
                                 app:icon="@drawable/i_vk"
                                 app:iconPadding="16dp"
                                 app:iconSize="36dp" />
@@ -209,7 +197,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Мы в Telegram"
                                 android:textAlignment="textStart"
-                                android:textSize="40sp"
+                                android:textSize="30sp"
                                 app:icon="@drawable/i_tg"
                                 app:iconPadding="16dp"
                                 app:iconSize="36dp" />
@@ -218,7 +206,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Другие Приложения"
-                                android:textSize="40sp"
+                                android:textSize="30sp"
                                 app:icon="@drawable/ic_baseline_apps_24"
                                 app:iconPadding="16dp"
                                 app:iconSize="36dp"
@@ -232,7 +220,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Настройки"
                                 android:textAlignment="textStart"
-                                android:textSize="40sp"
+                                android:textSize="30sp"
                                 app:icon="@drawable/baseline_settings_24"
                                 android:onClick="buttonPressed"
                                 app:iconPadding="16dp"

@@ -198,21 +198,6 @@ public class AppAboutFragment extends Fragment {
                     savedInstanceState);
         });
 
-        binding.bugReport.setOnClickListener(v -> {
-            try {
-                BugReportHelper.sendEmail(getActivity());
-            } catch (Exception e) {
-                Snackbar.make(v, "Не установлен клиент E-Mail",
-                        Snackbar.LENGTH_SHORT)
-                        .setAction("Установить", vi -> new CustomTabUtil()
-                            .openCustomTab(getActivity(),
-                                    "https://play.google.com/store/apps/details?id=ru.mail.mailapp",
-                                    R.color.purple_300))
-                        .show();
-                e.printStackTrace();
-            }
-        });
-
         binding.donateBtn.setOnClickListener(v -> new CustomTabUtil().openCustomTab(getActivity(),
                 "https://www.donationalerts.com/r/raf0707", R.color.md_theme_light_onSecondary));
 
