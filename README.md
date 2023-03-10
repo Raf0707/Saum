@@ -13,9 +13,6 @@
   </a>
   <a href="https://github.com/Raf0707/Ramadan/blob/master/LICENSE.md" style="text-decoration:none" area-label="License: Apache License 2.0">
     <img src="https://img.shields.io/badge/License-Apache License 2.0-blue.svg">
-  </a>
-  <a title="Crowdin" target="_blank" href="https://crowdin.com/project/al-asma-ul-husna"><img src="https://badges.crowdin.net/settings-for-free-fire-app/localized.svg">
-  </a>
 
 </p>
 
@@ -51,7 +48,6 @@ ___
 **VK chat male:** https://vk.me/join/NanAjNGi34t9Hk6Oopvo524ZDqgx2rfn_VE= <br>
 **VK chat female:** https://vk.me/join/AJQ1dxg4UyUz6n6oz7_EGIke <br>
 **VK chat general:** https://vk.me/join/6y9zEQ8OHDbqbRs8A9ujohbPtG2xZjCS/UQ= <br>
-**Crowdin:** https://crowdin.com/project/al-asma-ul-husna <br>
 
 ## 🌐 Internet
 you don't need an internet connection to use this app
