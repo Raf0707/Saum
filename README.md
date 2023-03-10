@@ -22,7 +22,7 @@
 ## 🆕 Material3 Design Ramadan for Android
 ## ⚠ Join [@Tabiin/Tabiin.Android-Development](https://t.me/+QTIZZFhT__ZjMmFi) on Telegram for important updates.
 ## 📱 Screenshots
-| <img src="github-files/post_light.jpg" width="200"/> | <img src="github-files/dua_light.jpg" width="200"/> | <img src="github-files/app_about_light.jpg" width="200"/> | <img src="github-files/post_night.jpg" width="200"/> | <img src="github-files/dua_night.jpg" width="200"/> |
+| <img src="github-files/post_light.jpg" width="200"/> | <img src="github-files/dua_light.jpg" width="200"/> | <img src="github-files/app_about_light.jpg" width="200"/> | <img src="github-files/post_night.jpg" width="200"/> | <img src="github-files/dua_night_n.jpg" width="200"/> |
 |:---:|:---:|:---:|:---:|:---:|
 | Splash Post (light) | Screen Dua (light) | Screen AppAbout (light) | Screen Splash Post (night) | Screen Screen Dua (night) | 
 
