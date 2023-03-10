@@ -19,7 +19,7 @@
 
 </p>
 
-## 🆕 Material3 Design Al Asma Ul Husna for Android
+## 🆕 Material3 Design Ramadan for Android
 ## ⚠ Join [@Tabiin/Tabiin.Android-Development](https://t.me/+QTIZZFhT__ZjMmFi) on Telegram for important updates.
 ## 📱 Screenshots
 | <img src="github-files/post_light.jpg" width="200"/> | <img src="github-files/dua_light.jpg" width="200"/> | <img src="github-files/app_about_light.jpg" width="200"/> | <img src="github-files/post_night.jpg" width="200"/> | <img src="github-files/dua_night.jpg" width="200"/> |
@@ -57,7 +57,7 @@ ___
 you don't need an internet connection to use this app
 
 ## 🗂️ License
-# Al Asma Ul Husna is released under the Apache License 2.0.
+# Ramadan is released under the Apache License 2.0.
 A permissive license whose main conditions require preservation of copyright and license notices. Contributors provide an express grant of patent rights. Licensed works, modifications, and larger works may be distributed under different terms and without source code.
 
 | Permissions | Limitations| Conditions | 
