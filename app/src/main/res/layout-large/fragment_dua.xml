@@ -127,8 +127,7 @@
                             android:id="@+id/duaSuhurTranslate"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Перевод: Ради Всевышнего Аллаха я искренне намерился соблюдать пост месяца Рамазан от рассвета до заката"
-                            android:layout_marginTop="8dp"
+                            android:text="Перевод: Ради Всевышнего Аллаха я искренне намерился соблюдать пост месяца Рамазан от фаджра (дорассветного времени) до магриба (захода солнца) ради Всевышнего Аллаха"                            android:layout_marginTop="8dp"
                             android:gravity="center"
                             android:textSize="20sp"
                             android:textStyle="normal" />

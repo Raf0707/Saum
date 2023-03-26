@@ -60,6 +60,7 @@
                 android:layout_height="wrap_content"
                 android:paddingHorizontal="8dp"
                 android:text="Use Dynamic colors"
+                android:gravity="center"
                 android:textSize="18sp"/>
 
         </LinearLayout>
@@ -69,8 +70,8 @@
         android:id="@+id/backFromSettingsFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="850dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="400dp"
         android:text="back">
     </com.google.android.material.button.MaterialButton>
 
