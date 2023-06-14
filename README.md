@@ -1,4 +1,4 @@
-<h1 align="center">Ramadan</h1>
+<h1 align="center">Saum</h1>
 <h2 align="center">from Tabiin</h2>
 
 <p align="center">
