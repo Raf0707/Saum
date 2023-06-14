@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:id="@+id/about_app"
     tools:openDrawer="start"
-    tools:context="ru.tabiin.ramadan.ui.about_app.AppAboutFragment">
+    tools:context="raf.tabiin.saum.ui.about_app.AppAboutFragment">
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollZickr"
@@ -51,7 +51,7 @@
                                 android:layout_width="160dp"
                                 android:layout_height="wrap_content"
                                 android:padding="8dp"
-                                android:src="@drawable/ramadan_icon_v" />
+                                android:src="@drawable/saum_banner" />
 
                             <LinearLayout
                                 android:layout_width="240dp"
@@ -64,7 +64,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="50dp"
                                     android:gravity="center"
-                                    android:text="Ramadan"
+                                    android:text="Saum"
                                     android:textSize="30sp"
                                     android:textStyle="bold" />
 

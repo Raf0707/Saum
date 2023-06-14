@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'ru.tabiin.ramadan'
+    namespace 'raf.tabiin.saum'
     compileSdk 33
 
     defaultConfig {
-        applicationId "ru.tabiin.ramadan"
+        applicationId "raf.tabiin.saum"
         minSdk 22
         targetSdk 33
         versionCode 3

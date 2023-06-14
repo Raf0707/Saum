@@ -8,7 +8,7 @@
   <a href="https://github.com/Raf0707/Ramadan.git" style="text-decoration:none" area-label="Min API: 22">
     <img src="https://img.shields.io/badge/minSdkVersion-22-green.svg">
   </a>
-  <a href="https://apps.rustore.ru/app/ru.tabiin.ramadan" style="text-decoration:none" area-label="RuStore">
+  <a href="https://apps.rustore.ru/app/raf.tabiin.saum" style="text-decoration:none" area-label="RuStore">
     <img src="https://img.shields.io/badge/Download-RuStore-green">
   </a>
   <a href="https://github.com/Raf0707/Ramadan/blob/master/LICENSE.md" style="text-decoration:none" area-label="License: Apache License 2.0">

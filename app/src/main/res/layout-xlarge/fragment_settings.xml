@@ -62,6 +62,15 @@
                 android:text="Use Dynamic colors"
                 android:textSize="18sp"/>
 
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/addFollowSystemIconOnMain"
+                android:enabled="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="8dp"
+                android:text="FollowSystem icon on Main Screen"
+                android:textSize="18sp"/>
+
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 

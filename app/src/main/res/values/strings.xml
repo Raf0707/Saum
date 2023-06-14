@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Ramadan</string>
+    <string name="app_name">Saum</string>
     <string name="version">Версия: 1.0.0.0</string>
     <string name="rafail_url" translatable="false">https://github.com/Raf0707</string>
     <string name="mail_raf" translatable="false">raf_android-dev@mail.ru</string>
