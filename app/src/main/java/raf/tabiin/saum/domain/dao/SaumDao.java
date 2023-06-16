@@ -26,7 +26,10 @@ public interface SaumDao {
     List<SaumItem> findByNames(String title);
 
     @Query("SELECT * FROM saums WHERE id = :id")
-    List<SaumItem> getCounterID(long id);
+    List<SaumItem> getSaumIDS(long id);
+
+    @Query("SELECT * FROM saums WHERE id = :id")
+    int getSaumID(long id);
 
     @Insert
     void insertAll(SaumItem... saumItems);

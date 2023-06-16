@@ -17,7 +17,7 @@ public class SaumRepository {
 
     public SaumRepository(Application application) {
         SaumDatabase saumDatabase = SaumDatabase.getInstance(application);
-        saumDao = saumDatabase.counterDao();
+        saumDao = saumDatabase.saumDao();
         saumsList = (LiveData<List<SaumItem>>) saumDao.getAllSaums();
     }
 

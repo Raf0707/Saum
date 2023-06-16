@@ -5,21 +5,33 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
+
+import java.util.Objects;
 
 import raf.tabiin.saum.R;
 import raf.tabiin.saum.databinding.FragmentMainSaumBinding;
+import raf.tabiin.saum.domain.database.SaumDatabase;
+import raf.tabiin.saum.domain.database.SaumDatabase_Impl;
+import raf.tabiin.saum.domain.repository.SaumRepository;
 import raf.tabiin.saum.ui.saum.monday_thursday.MTFragment;
+import raf.tabiin.saum.ui.saum.monday_thursday.SaumViewModel;
+
+// android:enableOnBackInvokedCallback="true"
 
 public class MainSaumFragment extends Fragment {
     FragmentMainSaumBinding b;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         b = FragmentMainSaumBinding.inflate(getLayoutInflater());
+
         return b.getRoot();
     }
 

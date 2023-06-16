@@ -98,6 +98,20 @@
 
     </TextView>
 
+    <TextView
+        android:id="@+id/saumId"
+        android:layout_width="1dp"
+        android:layout_height="16dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.31">
+
+    </TextView>
+
     <CheckBox
         android:id="@+id/saumDone"
         android:layout_width="wrap_content"

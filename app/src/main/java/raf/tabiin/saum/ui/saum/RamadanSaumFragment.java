@@ -6,6 +6,7 @@ import android.content.*;
 import android.os.*;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +15,11 @@ import android.widget.*;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
+import java.util.Objects;
+
 import raf.tabiin.saum.R;
+import raf.tabiin.saum.util.SharedPreferencesUtil;
+import raf.tabiin.saum.util.SharedPreferencesUtils;
 
 
 public class RamadanSaumFragment extends Fragment implements View.OnClickListener {
@@ -167,6 +172,8 @@ public class RamadanSaumFragment extends Fragment implements View.OnClickListene
 
         loadText();
 
+        //exportDataToMainFragment();
+
         return view;
     }
 
@@ -183,6 +190,8 @@ public class RamadanSaumFragment extends Fragment implements View.OnClickListene
             postProgressBar.setProgress(countCheck);
         }
 
+        saveText();
+        loadText();
     }
 
     @Override
@@ -193,11 +202,50 @@ public class RamadanSaumFragment extends Fragment implements View.OnClickListene
                 break;
         }
 
+        saveText();
+        loadText();
     }
 
     public void saveText() {
-        sPreff = getActivity().getPreferences(MODE_PRIVATE);
-        SharedPreferences.Editor ed = sPreff.edit();
+        //sPreff = requireContext().getSharedPreferences(String.valueOf(MODE_PRIVATE), 0);
+        //sPreff = requireActivity().getPreferences(MODE_PRIVATE);
+        //SharedPreferences.Editor ed = sPreff.edit();
+        //ed.clear();
+
+        SharedPreferencesUtil.saveBoolean(requireContext(), "c1", c1.isChecked());
+        SharedPreferencesUtil.saveBoolean(requireContext(), "c2", c2.isChecked());
+        SharedPreferencesUtil.saveBoolean(requireContext(), "c3", c3.isChecked());
+        SharedPreferencesUtil.saveBoolean(requireContext(), "c4", c4.isChecked());
+        SharedPreferencesUtil.saveBoolean(requireContext(), "c5", c5.isChecked());
+        SharedPreferencesUtil.saveBoolean(requireContext(), "c6", c6.isChecked());
+        SharedPreferencesUtil.saveBoolean(requireContext(), "c7", c7.isChecked());
+        SharedPreferencesUtil.saveBoolean(requireContext(), "c8", c8.isChecked());
+        SharedPreferencesUtil.saveBoolean(requireContext(), "c9", c9.isChecked());
+        SharedPreferencesUtil.saveBoolean(requireContext(), "c10", c10.isChecked());
+        SharedPreferencesUtil.saveBoolean(requireContext(), "c11", c11.isChecked());
+        SharedPreferencesUtil.saveBoolean(requireContext(), "c12", c12.isChecked());
+        SharedPreferencesUtil.saveBoolean(requireContext(), "c13", c13.isChecked());
+        SharedPreferencesUtil.saveBoolean(requireContext(), "c14", c14.isChecked());
+        SharedPreferencesUtil.saveBoolean(requireContext(), "c15", c15.isChecked());
+        SharedPreferencesUtil.saveBoolean(requireContext(), "c16", c16.isChecked());
+        SharedPreferencesUtil.saveBoolean(requireContext(), "c17", c17.isChecked());
+        SharedPreferencesUtil.saveBoolean(requireContext(), "c18", c18.isChecked());
+        SharedPreferencesUtil.saveBoolean(requireContext(), "c19", c19.isChecked());
+        SharedPreferencesUtil.saveBoolean(requireContext(), "c20", c20.isChecked());
+        SharedPreferencesUtil.saveBoolean(requireContext(), "c21", c21.isChecked());
+        SharedPreferencesUtil.saveBoolean(requireContext(), "c22", c22.isChecked());
+        SharedPreferencesUtil.saveBoolean(requireContext(), "c23", c23.isChecked());
+        SharedPreferencesUtil.saveBoolean(requireContext(), "c24", c24.isChecked());
+        SharedPreferencesUtil.saveBoolean(requireContext(), "c25", c25.isChecked());
+        SharedPreferencesUtil.saveBoolean(requireContext(), "c26", c26.isChecked());
+        SharedPreferencesUtil.saveBoolean(requireContext(), "c27", c27.isChecked());
+        SharedPreferencesUtil.saveBoolean(requireContext(), "c28", c28.isChecked());
+        SharedPreferencesUtil.saveBoolean(requireContext(), "c29", c29.isChecked());
+        SharedPreferencesUtil.saveBoolean(requireContext(), "c30", c30.isChecked());
+
+
+
+        /*
 
         ed.putBoolean("c1", c1.isChecked());
         ed.putBoolean("c2", c2.isChecked());
@@ -230,52 +278,63 @@ public class RamadanSaumFragment extends Fragment implements View.OnClickListene
         ed.putBoolean("c29", c29.isChecked());
         ed.putBoolean("c30", c30.isChecked());
 
+         */
 
 
-        ed.putString("saumRamadan", itog.getText().toString());
+
+        //ed.putString("saumRamadan", itog.getText().toString());
+        SharedPreferencesUtil.saveString(requireContext(), "saumRamadan", itog.getText().toString());
         postProgressBar.setProgress(countCheck);
         countCheck = Integer.parseInt(itog.getText().toString());
-        ed.apply();
+        //ed.apply();
+        //ed.commit();
+
+
+        /*MainSaumFragment mainSaumFragment = new MainSaumFragment();
+        Bundle bundle = new Bundle();
+        bundle.putInt("ramadanProgress", countCheck);
+        mainSaumFragment.setArguments(bundle);*/
+        //getFragmentManager().beginTransaction().replace(R.id.containerFragment, mainSaumFragment).commitAllowingStateLoss();
     }
 
     public void loadText() {
-        sPreff = getActivity().getPreferences(MODE_PRIVATE);
+        sPreff = requireActivity().getPreferences(MODE_PRIVATE);
 
-        c1.setChecked(sPreff.getBoolean("c1", false));
-        c2.setChecked(sPreff.getBoolean("c2", false));
-        c3.setChecked(sPreff.getBoolean("c3", false));
-        c4.setChecked(sPreff.getBoolean("c4", false));
-        c5.setChecked(sPreff.getBoolean("c5", false));
-        c6.setChecked(sPreff.getBoolean("c6", false));
-        c7.setChecked(sPreff.getBoolean("c7", false));
-        c8.setChecked(sPreff.getBoolean("c8", false));
-        c9.setChecked(sPreff.getBoolean("c9", false));
-        c10.setChecked(sPreff.getBoolean("c10", false));
-        c11.setChecked(sPreff.getBoolean("c11", false));
-        c12.setChecked(sPreff.getBoolean("c12", false));
-        c13.setChecked(sPreff.getBoolean("c13", false));
-        c14.setChecked(sPreff.getBoolean("c14", false));
-        c15.setChecked(sPreff.getBoolean("c15", false));
-        c16.setChecked(sPreff.getBoolean("c16", false));
-        c17.setChecked(sPreff.getBoolean("c17", false));
-        c18.setChecked(sPreff.getBoolean("c18", false));
-        c19.setChecked(sPreff.getBoolean("c19", false));
-        c20.setChecked(sPreff.getBoolean("c20", false));
-        c21.setChecked(sPreff.getBoolean("c21", false));
-        c22.setChecked(sPreff.getBoolean("c22", false));
-        c23.setChecked(sPreff.getBoolean("c23", false));
-        c24.setChecked(sPreff.getBoolean("c24", false));
-        c25.setChecked(sPreff.getBoolean("c25", false));
-        c26.setChecked(sPreff.getBoolean("c26", false));
-        c27.setChecked(sPreff.getBoolean("c27", false));
-        c28.setChecked(sPreff.getBoolean("c28", false));
-        c29.setChecked(sPreff.getBoolean("c29", false));
-        c30.setChecked(sPreff.getBoolean("c30", false));
+        c1.setChecked(SharedPreferencesUtil.loadBoolean(requireContext(), "c1"));
+        c2.setChecked(SharedPreferencesUtil.loadBoolean(requireContext(),"c2"));
+        c3.setChecked(SharedPreferencesUtil.loadBoolean(requireContext(),"c3"));
+        c4.setChecked(SharedPreferencesUtil.loadBoolean(requireContext(),"c4"));
+        c5.setChecked(SharedPreferencesUtil.loadBoolean(requireContext(),"c5"));
+        c6.setChecked(SharedPreferencesUtil.loadBoolean(requireContext(),"c6"));
+        c7.setChecked(SharedPreferencesUtil.loadBoolean(requireContext(),"c7"));
+        c8.setChecked(SharedPreferencesUtil.loadBoolean(requireContext(),"c8"));
+        c9.setChecked(SharedPreferencesUtil.loadBoolean(requireContext(),"c9"));
+        c10.setChecked(SharedPreferencesUtil.loadBoolean(requireContext(),"c10"));
+        c11.setChecked(SharedPreferencesUtil.loadBoolean(requireContext(),"c11"));
+        c12.setChecked(SharedPreferencesUtil.loadBoolean(requireContext(),"c12"));
+        c13.setChecked(SharedPreferencesUtil.loadBoolean(requireContext(),"c13"));
+        c14.setChecked(SharedPreferencesUtil.loadBoolean(requireContext(),"c14"));
+        c15.setChecked(SharedPreferencesUtil.loadBoolean(requireContext(),"c15"));
+        c16.setChecked(SharedPreferencesUtil.loadBoolean(requireContext(),"c16"));
+        c17.setChecked(SharedPreferencesUtil.loadBoolean(requireContext(),"c17"));
+        c18.setChecked(SharedPreferencesUtil.loadBoolean(requireContext(),"c18"));
+        c19.setChecked(SharedPreferencesUtil.loadBoolean(requireContext(),"c19"));
+        c20.setChecked(SharedPreferencesUtil.loadBoolean(requireContext(),"c20"));
+        c21.setChecked(SharedPreferencesUtil.loadBoolean(requireContext(),"c21"));
+        c22.setChecked(SharedPreferencesUtil.loadBoolean(requireContext(),"c22"));
+        c23.setChecked(SharedPreferencesUtil.loadBoolean(requireContext(),"c23"));
+        c24.setChecked(SharedPreferencesUtil.loadBoolean(requireContext(),"c24"));
+        c25.setChecked(SharedPreferencesUtil.loadBoolean(requireContext(),"c25"));
+        c26.setChecked(SharedPreferencesUtil.loadBoolean(requireContext(),"c26"));
+        c27.setChecked(SharedPreferencesUtil.loadBoolean(requireContext(),"c27"));
+        c28.setChecked(SharedPreferencesUtil.loadBoolean(requireContext(),"c28"));
+        c29.setChecked(SharedPreferencesUtil.loadBoolean(requireContext(),"c29"));
+        c30.setChecked(SharedPreferencesUtil.loadBoolean(requireContext(),"c30"));
 
 
 
-        String tselText = sPreff.getString("saumRamadan", itog.getText().toString());
-        itog.setText(tselText);
+        //String tselText = sPreff.getString("saumRamadan", itog.getText().toString());
+        itog.setText(SharedPreferencesUtils.getString(requireContext(), "saumRamadan", itog.getText().toString()));
         postProgressBar.setProgress(countCheck);
     }
 
@@ -331,10 +390,21 @@ public class RamadanSaumFragment extends Fragment implements View.OnClickListene
                 .show();
     }
 
+    public void exportDataToMainFragment() {
+        saveText();
+        //MainSaumFragment mainSaumFragment = new MainSaumFragment();
+        Fragment fragment = new Fragment();
+        Bundle bundle = new Bundle();
+        FragmentManager fragmentManager = getFragmentManager();
+        bundle.putInt("ramadanProgress", countCheck);
+        fragment.setArguments(bundle);
+    }
+
 
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
+        //exportDataToMainFragment();
         saveText();
         loadText();
         super.onSaveInstanceState(outState);
@@ -342,6 +412,7 @@ public class RamadanSaumFragment extends Fragment implements View.OnClickListene
 
     @Override
     public void onStop() {
+        //exportDataToMainFragment();
         saveText();
         loadText();
         super.onStop();
@@ -349,6 +420,7 @@ public class RamadanSaumFragment extends Fragment implements View.OnClickListene
 
     @Override
     public void onPause() {
+        //exportDataToMainFragment();
         saveText();
         loadText();
         super.onPause();
@@ -356,6 +428,7 @@ public class RamadanSaumFragment extends Fragment implements View.OnClickListene
 
     @Override
     public void onDestroyView() {
+        //exportDataToMainFragment();
         saveText();
         loadText();
         super.onDestroyView();
@@ -363,6 +436,7 @@ public class RamadanSaumFragment extends Fragment implements View.OnClickListene
 
     @Override
     public void onDestroy() {
+        //exportDataToMainFragment();
         saveText();
         loadText();
         super.onDestroy();

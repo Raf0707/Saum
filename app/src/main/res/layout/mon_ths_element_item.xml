@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.google.android.material.card.MaterialCardView
@@ -28,47 +28,54 @@
                 android:id="@+id/listItemToday"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
                     android:id="@+id/daySaum"
-                    android:hint="пн / чт"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="8dp"
-                    android:layout_marginRight="70dp"
                     android:layout_marginTop="8dp"
+                    android:layout_marginRight="70dp"
                     android:layout_marginBottom="8dp"
-                    android:textSize="25dp"
                     android:ellipsize="marquee"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:hint="пн / чт"
+                    android:textSize="25dp">
+
                 </TextView>
 
                 <TextView
                     android:id="@+id/monthSaum"
-                    android:hint="введите месяц"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="8dp"
-                    android:layout_marginRight="70dp"
                     android:layout_marginTop="8dp"
+                    android:layout_marginRight="70dp"
                     android:layout_marginBottom="8dp"
-                    android:textSize="25dp"
                     android:ellipsize="marquee"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:hint="введите месяц"
+                    android:textSize="25dp">
+
                 </TextView>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="8dp"
-                    android:layout_marginRight="70dp"
                     android:layout_marginTop="8dp"
+                    android:layout_marginRight="70dp"
                     android:layout_marginBottom="8dp"
-                    android:textSize="30dp"
                     android:ellipsize="marquee"
                     android:gravity="center"
-                    android:singleLine="true">
+                    android:singleLine="true"
+                    android:textSize="30dp">
+
                 </TextView>
 
 

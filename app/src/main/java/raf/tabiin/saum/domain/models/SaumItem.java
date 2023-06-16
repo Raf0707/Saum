@@ -2,6 +2,7 @@ package raf.tabiin.saum.domain.models;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
@@ -24,8 +25,9 @@ public class SaumItem implements Serializable {
     @ColumnInfo(name = "completed")
     public boolean completed;
 
-    /*
-    SaumItem(int id, String day, String month, int progress, boolean completed) {
+
+    @Ignore
+    public SaumItem(int id, String day, String month, int progress, boolean completed) {
         this.id = id;
         this.day = day;
         this.month = month;
@@ -33,7 +35,7 @@ public class SaumItem implements Serializable {
         this.completed = completed;
     }
 
-     */
+
 
     public SaumItem(String day, String month, int progress, boolean completed) {
         this.day = day;
@@ -41,6 +43,8 @@ public class SaumItem implements Serializable {
         this.progress = progress;
         this.completed = completed;
     }
+
+
 
 
 

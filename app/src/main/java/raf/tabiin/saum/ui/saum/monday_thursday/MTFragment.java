@@ -133,6 +133,10 @@ public class MTFragment extends Fragment implements SaumAdapter.HandleCounterCli
             alert.setTitle("Изменить данные о посте");
             saumDay.setText(saumForEdit.day);
             saumMonth.setText(saumForEdit.month);
+            saumProgress.setText(String.valueOf(saumForEdit.progress));
+            saumDone.setChecked(saumForEdit.completed);
+
+            //saumViewModel.update(saumForEdit);
         }
 
         alert.setNegativeButton("Отмена", (dialogInterface, i) -> {
@@ -165,31 +169,6 @@ public class MTFragment extends Fragment implements SaumAdapter.HandleCounterCli
         alert.show();
     }
 
-    public static String getRandomString( int length) {
-        Random random = new Random();
-        StringBuffer sb = new StringBuffer();
-        for (int i = 0; i < length; i++) {
-            int number = random.nextInt(3);
-            long result = 0;
-            switch (number) {
-                case 0:
-                    result = Math.round(Math.random() * 25 + 65);
-                    sb.append((char) result);
-                    break;
-                case 1:
-                    result = Math.round(Math.random() * 25 + 97);
-                    sb.append((char) result);
-                    break;
-                case 2:
-                    sb.append(new Random().nextInt(10));
-                    break;
-            }
-
-
-        }
-        return sb.toString();
-    }
-
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -202,7 +181,7 @@ public class MTFragment extends Fragment implements SaumAdapter.HandleCounterCli
                 int updateProgress = data.getIntExtra("updateProgress", progress);
                 boolean updateDone = data.getBooleanExtra("updateDone", done);
 
-                SaumItem saumItem = new SaumItem(updateDay, updateMonth, updateProgress, updateDone);
+                SaumItem saumItem = new SaumItem(saumForEdit.getId(), updateDay, updateMonth, updateProgress, updateDone);
 
                 day =  updateDay;
                 month = updateMonth;
@@ -213,6 +192,12 @@ public class MTFragment extends Fragment implements SaumAdapter.HandleCounterCli
             }
         }
     }
+
+    /*public void exportDataToMainFragment() {
+        Bundle bundle = new Bundle();
+        FragmentManager fragmentManager = getFragmentManager();
+        bundle.putInt("monthurs", progress);
+    }*/
 
     @Override
     public void itemClick(SaumItem counterItem) {

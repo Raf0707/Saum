@@ -9,6 +9,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import java.util.List;
 
+import raf.tabiin.saum.domain.database.SaumDatabase;
 import raf.tabiin.saum.domain.models.SaumItem;
 import raf.tabiin.saum.domain.repository.SaumRepository;
 
@@ -17,6 +18,8 @@ public class SaumViewModel extends AndroidViewModel {
     private SaumRepository saumRepository;
 
     public MutableLiveData<SaumItem> currentSaum;
+
+    public SaumDatabase saumDatabase = SaumDatabase.getInstance(getApplication());
 
     public SaumViewModel(@NonNull Application application) {
         super(application);
@@ -43,10 +46,8 @@ public class SaumViewModel extends AndroidViewModel {
         getAllSaumList();
     }
     public void insert(String day, String month) {
-        //counterRepository.insertData(counterItem);
         SaumItem saumItem = new SaumItem(day, month, 0, false);
         saumRepository.insertData(saumItem);
-        //counterDatabase.counterDao().insertCounter(counterItem);
         getAllSaumList();
     }
     public void update(SaumItem saumItem) {
