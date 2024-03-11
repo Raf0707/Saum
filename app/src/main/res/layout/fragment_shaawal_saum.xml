@@ -30,6 +30,8 @@
         android:gravity="center"
         android:text="Начиная со 2 числа, 1 число месяца шааваль - Ураза Байрам, пост запрещен"
         android:textSize="15sp"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -189,16 +191,16 @@
         app:layout_constraintVertical_bias="0.688" />
 
     <Button
-        android:id="@+id/button_reset_s"
-        android:layout_width="88dp"
-        android:layout_height="54dp"
-        android:text="reset"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.841" />
+    android:id="@+id/button_reset_s"
+    android:layout_width="88dp"
+    android:layout_height="54dp"
+    android:text="reset"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.498"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.841" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
