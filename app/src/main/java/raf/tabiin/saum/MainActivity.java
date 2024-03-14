@@ -36,10 +36,6 @@ public class MainActivity extends AppCompatActivity {
 
     AppAboutFragment appAboutFragment;
     RamadanSaumFragment ramadanSaumFragment;
-
-    private static final String TAG = "MainActivity";
-    private static final String JSON_FILENAME = "ramadan_days.json";
-
     Boolean flag = false;
     View view;
 

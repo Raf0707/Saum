@@ -60,6 +60,7 @@ public class RamadanSaumFragment extends Fragment implements View.OnClickListene
 
         ramadanDaysList = new ArrayList<>() ;
         adapter = new RamadanDaysAdapter(ramadanDaysList, ramadanDay -> saveRamadanDaysToJson());
+
         recyclerView.setAdapter(adapter);
 
         loadRamadanDays();
