@@ -29,7 +29,7 @@ public class SaumAdapter extends RecyclerView.Adapter<SaumAdapter.MyViewHolder> 
     public SaumAdapter(Context context) {
         this.context = context;
     }
-    public void setSaumList(List<SaumItem> saumsList) {
+    public void setSaumList(List<SaumItem> saumsList    ) {
         this.saumList = saumsList;
         notifyDataSetChanged();
     }

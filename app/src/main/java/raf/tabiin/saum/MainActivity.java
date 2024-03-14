@@ -4,18 +4,31 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.splashscreen.SplashScreen;
 
+import android.content.res.AssetManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 
 import com.google.android.material.color.DynamicColors;
 
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+
 import raf.tabiin.saum.databinding.ActivityMainBinding;
 import raf.tabiin.saum.ui.about_app.AppAboutFragment;
 import raf.tabiin.saum.ui.dua.DuaFragment;
 import raf.tabiin.saum.ui.saum.MainSaumFragment;
 import raf.tabiin.saum.ui.saum.RamadanSaumFragment;
+import raf.tabiin.saum.util.FileUtils;
 import raf.tabiin.saum.util.SharedPreferencesUtils;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
 
     AppAboutFragment appAboutFragment;
     RamadanSaumFragment ramadanSaumFragment;
+
+    private static final String TAG = "MainActivity";
+    private static final String JSON_FILENAME = "ramadan_days.json";
 
     Boolean flag = false;
     View view;
@@ -41,11 +57,14 @@ public class MainActivity extends AppCompatActivity {
 
         view = findViewById(R.id.view);
 
+
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.containerFragment, new MainSaumFragment())
                     .commit();
         }
+
+        copyJsonFromAssetsIfNeeded();
 
         if (SharedPreferencesUtils.getBoolean(this, "useDynamicColors"))
             DynamicColors.applyToActivityIfAvailable(this);
@@ -156,6 +175,19 @@ public class MainActivity extends AppCompatActivity {
             }
             return false;
         });
+    }
+
+    private void copyJsonFromAssetsIfNeeded() {
+        File internalDir = getFilesDir();
+        File ramadanDaysFile = new File(internalDir, "ramadan_days.json");
+
+        if (!ramadanDaysFile.exists()) {
+            try {
+                FileUtils.copyAssetToFile(getAssets(), "ramadan_days.json", ramadanDaysFile);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public void animSelectTheme() {

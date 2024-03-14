@@ -1,0 +1,124 @@
+{
+  "ramadan_days": [
+    {
+      "day": "1",
+      "is_checked": false
+    },
+    {
+      "day": "2",
+      "is_checked": false
+    },
+    {
+      "day": "3",
+      "is_checked": false
+    },
+    {
+      "day": "4",
+      "is_checked": false
+    },
+    {
+      "day": "5",
+      "is_checked": false
+    },
+    {
+      "day": "6",
+      "is_checked": false
+    },
+    {
+      "day": "7",
+      "is_checked": false
+    },
+    {
+      "day": "8",
+      "is_checked": false
+    },
+    {
+      "day": "9",
+      "is_checked": false
+    },
+    {
+      "day": "10",
+      "is_checked": false
+    },
+    {
+      "day": "11",
+      "is_checked": false
+    },
+    {
+      "day": "12",
+      "is_checked": false
+    },
+    {
+      "day": "13",
+      "is_checked": false
+    },
+    {
+      "day": "14",
+      "is_checked": false
+    },
+    {
+      "day": "15",
+      "is_checked": false
+    },
+    {
+      "day": "16",
+      "is_checked": false
+    },
+    {
+      "day": "17",
+      "is_checked": false
+    },
+    {
+      "day": "18",
+      "is_checked": false
+    },
+    {
+      "day": "19",
+      "is_checked": false
+    },
+    {
+      "day": "20",
+      "is_checked": false
+    },
+    {
+      "day": "21",
+      "is_checked": false
+    },
+    {
+      "day": "22",
+      "is_checked": false
+    },
+    {
+      "day": "23",
+      "is_checked": false
+    },
+    {
+      "day": "24",
+      "is_checked": false
+    },
+    {
+      "day": "25",
+      "is_checked": false
+    },
+    {
+      "day": "26",
+      "is_checked": false
+    },
+    {
+      "day": "27",
+      "is_checked": false
+    },
+    {
+      "day": "28",
+      "is_checked": false
+    },
+    {
+      "day": "29",
+      "is_checked": false
+    },
+    {
+      "day": "30",
+      "is_checked": false
+    }
+  ]
+}
