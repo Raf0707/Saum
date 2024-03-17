@@ -5,16 +5,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="raf.tabiin.saum.ui.saum.MainSaumFragment">
 
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/nestedScrollZickr"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="60dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -86,8 +76,6 @@
                         android:gravity="center"
                         android:singleLine="true">
                     </TextView>
-
-
                 </LinearLayout>
 
                 <com.google.android.material.progressindicator.LinearProgressIndicator
@@ -110,9 +98,7 @@
                     app:trackThickness="4dp" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-
         </com.google.android.material.card.MaterialCardView>
-
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/ramadanSaumCard"
@@ -129,7 +115,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0">
-
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -1026,10 +1011,6 @@
 
         </com.google.android.material.card.MaterialCardView>
 
-
-
     </LinearLayout>
-
-    </androidx.core.widget.NestedScrollView>
 </FrameLayout>
 

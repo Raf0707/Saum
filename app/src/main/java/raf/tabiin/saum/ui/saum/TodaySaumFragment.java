@@ -19,8 +19,6 @@ public class TodaySaumFragment extends Fragment {
 
         b = FragmentTodaySaumBinding.inflate(getLayoutInflater());
 
-
-
         return b.getRoot();
     }
 }

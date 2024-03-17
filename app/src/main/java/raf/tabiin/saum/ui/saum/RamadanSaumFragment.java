@@ -1,18 +1,15 @@
 package raf.tabiin.saum.ui.saum;
 
-import android.os.*;
-
-import raf.tabiin.saum.util.FileUtils;
-
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.*;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.GridLayoutManager;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
@@ -22,113 +19,66 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import raf.tabiin.saum.R;
-import raf.tabiin.saum.adapters.RamadanDaysAdapter;
 import raf.tabiin.saum.domain.models.RamadanDay;
+import raf.tabiin.saum.adapters.RamadanDaysAdapter;
+import raf.tabiin.saum.databinding.FragmentPostRamadanBinding;
+import raf.tabiin.saum.util.FileUtils;
+import raf.tabiin.saum.viewmodel.RamadanDaysViewModel;
 
-public class RamadanSaumFragment extends Fragment implements View.OnClickListener {
-    private int countCheck = 0;
-    private TextView itog;
-
-    private ProgressBar postProgressBar;
-
-    private Button reset;
-
-    private List<RamadanDay> ramadanDaysList;
-    private RecyclerView recyclerView;
+public class RamadanSaumFragment extends Fragment {
+    private FragmentPostRamadanBinding binding;
     private RamadanDaysAdapter adapter;
+    private RamadanDaysViewModel viewModel;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        viewModel = new ViewModelProvider(requireActivity()).get(RamadanDaysViewModel.class);
+    }
+
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        binding = FragmentPostRamadanBinding.inflate(inflater, container, false);
 
-        View view = inflater.inflate(R.layout.fragment_post_ramadan, container, false);
+        binding.recyclerViewRamadanDays.setLayoutManager(new GridLayoutManager(getActivity(), 5));
+        List<RamadanDay> ramadanDaysList = viewModel.getRamadanDaysList();
+        adapter = new RamadanDaysAdapter(ramadanDaysList, new RamadanDaysAdapter.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RamadanDay ramadanDay) {
+                saveRamadanDaysToJson();
+            }
 
-        itog = view.findViewById(R.id.itogPost);
+            @Override
+            public void onCheckedCountChanged(int count) {
+                binding.postRamadanProgressBar.setProgress(count);
+                binding.itogPost.setText(String.valueOf(count));
+            }
+        });
+        binding.recyclerViewRamadanDays.setAdapter(adapter);
 
-        postProgressBar = view.findViewById(R.id.postRamadanProgressBar);
-
-        reset = view.findViewById(R.id.button_reset);
-
-        reset.setOnClickListener(this);
-
-        recyclerView = view.findViewById(R.id.recycler_view_ramadan_days);
-        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 3));
-
-        ramadanDaysList = new ArrayList<>() ;
-        adapter = new RamadanDaysAdapter(ramadanDaysList, ramadanDay -> saveRamadanDaysToJson());
-
-        recyclerView.setAdapter(adapter);
+        binding.buttonReset.setOnClickListener(v -> {
+            binding.postRamadanProgressBar.setProgress(0);
+            binding.itogPost.setText(String.valueOf(0));
+            onAlert();
+            loadRamadanDays();
+            adapter.notifyDataSetChanged();
+        });
 
         loadRamadanDays();
 
-        return view;
-    }
+        int checkedCount = adapter.getCheckedCount();
+        binding.postRamadanProgressBar.setProgress(checkedCount);
+        binding.itogPost.setText(String.valueOf(checkedCount));
 
-    public void onCountCheck(boolean isChecked) {
-        if (isChecked) {
-            countCheck++;
-            itog.setText(Integer.toString(countCheck));
-            postProgressBar.setProgress(countCheck);
-        }
-        if (!isChecked && countCheck != 0) {
-            countCheck--;
-            if (countCheck < 0) countCheck = 0;
-            itog.setText(Integer.toString(countCheck));
-            postProgressBar.setProgress(countCheck);
-        }
-
-        saveRamadanDaysToJson();
-        loadRamadanDays();
-    }
-
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.button_reset:
-                if (countCheck != 0 && itog.getText().toString() != "0") onAlert();
-                break;
-        }
-
-        saveRamadanDaysToJson();
-        loadRamadanDays();
-    }
-    public void onAlert() {
-        new MaterialAlertDialogBuilder(requireContext(),
-                R.style.AlertDialogTheme)
-                .setTitle("Reset")
-                .setMessage("Обновить счетчик дней?")
-                .setPositiveButton("Да", (dialogInterface, i) -> {
-
-                        // очистить все
-
-                        itog.setText("0");
-                        countCheck = 0;
-                        postProgressBar.setProgress(countCheck);
-
-
-                        saveRamadanDaysToJson();
-                        loadRamadanDays();
-                })
-
-                .setNeutralButton("Отмена",
-                        (dialogInterface, i) ->
-                                dialogInterface.cancel())
-                .show();
-    }
-
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        //exportDataToMainFragment();
-        saveRamadanDaysToJson();
-        loadRamadanDays();
-        super.onSaveInstanceState(outState);
+        return binding.getRoot();
     }
 
     private void loadRamadanDays() {
+        List<RamadanDay> ramadanDaysList = viewModel.getRamadanDaysList();
         try {
             File internalDir = getActivity().getFilesDir();
             File ramadanDaysFile = new File(internalDir, "ramadan_days.json");
@@ -136,6 +86,9 @@ public class RamadanSaumFragment extends Fragment implements View.OnClickListene
 
             JSONObject jsonObject = new JSONObject(json);
             JSONArray jsonArray = jsonObject.getJSONArray("ramadan_days");
+
+            // Очистка списка перед загрузкой новых данных
+            ramadanDaysList.clear();
 
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject dayObject = jsonArray.getJSONObject(i);
@@ -151,6 +104,7 @@ public class RamadanSaumFragment extends Fragment implements View.OnClickListene
     }
 
     private void saveRamadanDaysToJson() {
+        List<RamadanDay> ramadanDaysList = viewModel.getRamadanDaysList();
         try {
             JSONArray jsonArray = new JSONArray();
             for (RamadanDay ramadanDay : ramadanDaysList) {
@@ -170,35 +124,47 @@ public class RamadanSaumFragment extends Fragment implements View.OnClickListene
         }
     }
 
-    @Override
-    public void onStop() {
-        //exportDataToMainFragment();
-        saveRamadanDaysToJson();
-        loadRamadanDays();
-        super.onStop();
+    private void resetJsonFile() {
+        List<RamadanDay> ramadanDaysList = viewModel.getRamadanDaysList();
+        try {
+            JSONArray jsonArray = new JSONArray();
+            for (int i = 1; i <= 30; i++) {
+                JSONObject dayObject = new JSONObject();
+                dayObject.put("day", String.valueOf(i));
+                dayObject.put("is_checked", false);
+                jsonArray.put(dayObject);
+                // Добавляем в список ramadanDaysList
+                ramadanDaysList.add(new RamadanDay(String.valueOf(i), false));
+            }
+
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("ramadan_days", jsonArray);
+
+            String json = jsonObject.toString();
+            FileUtils.writeStringToFile(getActivity(), json, "ramadan_days.json");
+
+        } catch (JSONException | IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    @Override
-    public void onPause() {
-        //exportDataToMainFragment();
-        saveRamadanDaysToJson();
-        loadRamadanDays();
-        super.onPause();
-    }
+    public void onAlert() {
+        new MaterialAlertDialogBuilder(requireContext(),
+                R.style.AlertDialogTheme)
+                .setTitle("Reset")
+                .setMessage("Обновить счетчик дней?")
+                .setPositiveButton("Да", (dialogInterface, i) -> {
 
-    @Override
-    public void onDestroyView() {
-        //exportDataToMainFragment();
-        saveRamadanDaysToJson();
-        loadRamadanDays();
-        super.onDestroyView();
-    }
+                    binding.postRamadanProgressBar.setProgress(0);
+                    binding.itogPost.setText(String.valueOf(0));
 
-    @Override
-    public void onDestroy() {
-        //exportDataToMainFragment();
-        saveRamadanDaysToJson();
-        loadRamadanDays();
-        super.onDestroy();
+                    resetJsonFile();
+                    loadRamadanDays();
+                })
+
+                .setNeutralButton("Отмена",
+                        (dialogInterface, i) ->
+                                dialogInterface.cancel())
+                .show();
     }
 }

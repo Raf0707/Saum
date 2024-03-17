@@ -209,10 +209,10 @@ public class AppAboutFragment extends Fragment {
                     R.color.purple_300));
 
         binding.settingsBtn.setOnClickListener(v -> {
-            changeFragment(getActivity(),
+            /* changeFragment(getActivity(),
                     new SettingsFragment(),
                     R.id.containerFragment,
-                    savedInstanceState);
+                    savedInstanceState); */
         });
 
         binding.donateBtn.setOnClickListener(v -> new CustomTabUtil().openCustomTab(getActivity(),

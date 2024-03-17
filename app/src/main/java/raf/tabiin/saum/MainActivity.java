@@ -3,10 +3,16 @@ package raf.tabiin.saum;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.splashscreen.SplashScreen;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 
 import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 
@@ -32,145 +38,56 @@ import raf.tabiin.saum.util.FileUtils;
 import raf.tabiin.saum.util.SharedPreferencesUtils;
 
 public class MainActivity extends AppCompatActivity {
-    ActivityMainBinding binding;
-
-    AppAboutFragment appAboutFragment;
-    RamadanSaumFragment ramadanSaumFragment;
-    Boolean flag = false;
-    View view;
+    private AppBarConfiguration appBarConfiguration;
+    private NavController navController;
+    private ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
-        int nightIcon = SharedPreferencesUtils.getInteger(this, "nightIcon", R.drawable.vectornightpress);
-
-        App.instance.setNightMode();
-
         SplashScreen splashScreen = SplashScreen.installSplashScreen(this);
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
-
-        view = findViewById(R.id.view);
-
-
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.containerFragment, new MainSaumFragment())
-                    .commit();
-        }
-
-        copyJsonFromAssetsIfNeeded();
-
         if (SharedPreferencesUtils.getBoolean(this, "useDynamicColors"))
             DynamicColors.applyToActivityIfAvailable(this);
 
-        if (SharedPreferencesUtils.getBoolean(this, "addFollowSystemIcon"))
-            flag = true;
-
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        setSupportActionBar(binding.toolbar);
 
-        if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM) {
-            if (!flag) {
-                if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
-                    binding.themeBtn.setIcon(getDrawable(nightIcon));
-                } else if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_NO) {
-                    binding.themeBtn.setIcon(getDrawable(R.drawable.vectorlight_press));
-                }
-            } else if (flag) {
-                binding.themeBtn.setIcon(getDrawable(R.drawable.follow_system));
-            }
-        } else if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
-            binding.themeBtn.setIcon(getDrawable(nightIcon));
-        } else if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_NO) {
-            binding.themeBtn.setIcon(getDrawable(R.drawable.vectorlight_press));
+        copyJsonFromAssetsIfNeeded();
+
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+        appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
+        NavigationUI.setupWithNavController(binding.bottomAppBar, navController);
+        NavigationUI.setupWithNavController(binding.toolbar, navController, appBarConfiguration);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.top_app_bar_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.settings) {
+            NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+            navController.navigate(R.id.settingsFragment2);
+            return true;
         }
 
-        appAboutFragment = new AppAboutFragment();
-        ramadanSaumFragment = new RamadanSaumFragment();
+        return super.onOptionsItemSelected(item);
+    }
 
-        binding.themeBtn.setOnClickListener(v -> {
-
-            if (!flag) {
-
-                if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM) {
-                    binding.themeBtn.setIcon(getDrawable(R.drawable.vectornightpress));
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                    SharedPreferencesUtils.saveInteger(getApplicationContext(), "checkedButton", R.id.setNightTheme);
-                    SharedPreferencesUtils.saveInteger(getApplicationContext(), "nightMode", 3);
-                    SharedPreferencesUtils.saveInteger(getApplicationContext(), "nightIcon", R.drawable.vectornightpress);
-
-                } else if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_NO) {
-                    binding.themeBtn.setIcon(getDrawable(R.drawable.vectornightpress));
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                    SharedPreferencesUtils.saveInteger(getApplicationContext(), "checkedButton", R.id.setNightTheme);
-                    SharedPreferencesUtils.saveInteger(getApplicationContext(), "nightMode", 3);
-                    SharedPreferencesUtils.saveInteger(getApplicationContext(), "nightIcon", R.drawable.vectornightpress);
-                } else if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
-                    binding.themeBtn.setIcon(getDrawable(R.drawable.vectorlight_press));
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                    SharedPreferencesUtils.saveInteger(getApplicationContext(), "checkedButton", R.id.setLightTheme);
-                    SharedPreferencesUtils.saveInteger(getApplicationContext(), "nightMode", 2);
-                    SharedPreferencesUtils.saveInteger(getApplicationContext(), "nightIcon", R.drawable.vectorlight_press);
-                }
-            } else if (flag) {
-
-                if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
-                    /*
-                     */
-                    binding.themeBtn.setIcon(getDrawable(R.drawable.follow_system));
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
-                    SharedPreferencesUtils.saveInteger(getApplicationContext(), "checkedButton", R.id.setFollowSystemTheme);
-                    SharedPreferencesUtils.saveInteger(getApplicationContext(), "nightMode", 1);
-                    SharedPreferencesUtils.saveInteger(getApplicationContext(), "nightIcon", R.drawable.follow_system);
-
-                } else if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM) {
-                    binding.themeBtn.setIcon(getDrawable(R.drawable.vectorlight_press));
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                    SharedPreferencesUtils.saveInteger(getApplicationContext(), "checkedButton", R.id.setLightTheme);
-                    SharedPreferencesUtils.saveInteger(getApplicationContext(), "nightMode", 2);
-                    SharedPreferencesUtils.saveInteger(getApplicationContext(), "nightIcon", R.drawable.vectorlight_press);
-
-                } else if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_NO) {
-                    binding.themeBtn.setIcon(getDrawable(R.drawable.vectornightpress));
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                    SharedPreferencesUtils.saveInteger(getApplicationContext(), "checkedButton", R.id.setNightTheme);
-                    SharedPreferencesUtils.saveInteger(getApplicationContext(), "nightMode", 3);
-                    SharedPreferencesUtils.saveInteger(getApplicationContext(), "nightIcon", R.drawable.vectornightpress);
-                }
-            }
-
-            recreate();
-        });
-
-        binding.navView.setOnItemSelectedListener(item -> {
-            switch (item.getItemId()) {
-                case R.id.post:
-
-                    getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.containerFragment, new MainSaumFragment())
-                            .commit();
-
-                    return true;
-
-                case R.id.dua:
-
-                    getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.containerFragment, new DuaFragment())
-                            .commit();
-
-                    return true;
-
-                case R.id.about_app:
-
-                    getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.containerFragment, new AppAboutFragment())
-                            .commit();
-                    return true;
-            }
-            return false;
-        });
+    @Override
+    public boolean onSupportNavigateUp() {
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+        return NavigationUI.navigateUp(navController, appBarConfiguration)
+                || super.onSupportNavigateUp();
     }
 
     private void copyJsonFromAssetsIfNeeded() {
@@ -184,9 +101,5 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
-    }
-
-    public void animSelectTheme() {
-
     }
 }

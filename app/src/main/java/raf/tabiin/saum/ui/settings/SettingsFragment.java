@@ -81,9 +81,9 @@ public class SettingsFragment extends Fragment {
 
 
         binding.backFromSettingsFragment.setOnClickListener(v -> {
-            getChildFragmentManager().beginTransaction()
+            /* getChildFragmentManager().beginTransaction()
                     .replace(R.id.containerFragment, new AppAboutFragment())
-                    .commit();
+                    .commit(); */
         });
 
     }

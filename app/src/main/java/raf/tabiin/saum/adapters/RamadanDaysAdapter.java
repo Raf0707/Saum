@@ -4,15 +4,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.List;
 
 import raf.tabiin.saum.R;
 import raf.tabiin.saum.domain.models.RamadanDay;
-
 
 public class RamadanDaysAdapter extends RecyclerView.Adapter<RamadanDaysAdapter.ViewHolder> {
 
@@ -56,13 +55,12 @@ public class RamadanDaysAdapter extends RecyclerView.Adapter<RamadanDaysAdapter.
 
             checkBox.setOnCheckedChangeListener(null);
 
-            checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    ramadanDay.setChecked(isChecked);
-                    if (listener != null) {
-                        listener.onCheckedChanged(ramadanDay);
-                    }
+            checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                ramadanDay.setChecked(isChecked);
+                if (listener != null) {
+                    listener.onCheckedChanged(ramadanDay);
+                    int checkedCount = getCheckedCount();
+                    listener.onCheckedCountChanged(checkedCount);
                 }
             });
         }
@@ -80,5 +78,10 @@ public class RamadanDaysAdapter extends RecyclerView.Adapter<RamadanDaysAdapter.
 
     public interface OnCheckedChangeListener {
         void onCheckedChanged(RamadanDay ramadanDay);
+        void onCheckedCountChanged(int count);
+    }
+
+    public void setOnCheckedChangeListener(OnCheckedChangeListener listener) {
+        this.listener = listener;
     }
 }
