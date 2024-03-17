@@ -25,6 +25,27 @@
         <action
             android:id="@+id/action_mainSaumFragment_to_hadithSaumFragment"
             app:destination="@id/hadithSaumFragment" />
+        <action
+            android:id="@+id/action_mainSaumFragment_to_MTFragment"
+            app:destination="@id/MTFragment" />
+        <action
+            android:id="@+id/action_mainSaumFragment_to_whiteDaysSaumFragment"
+            app:destination="@id/whiteDaysSaumFragment" />
+        <action
+            android:id="@+id/action_mainSaumFragment_to_zulHijaSaumFragment"
+            app:destination="@id/zulHijaSaumFragment" />
+        <action
+            android:id="@+id/action_mainSaumFragment_to_whiteDaysSaumFragment2"
+            app:destination="@id/whiteDaysSaumFragment" />
+        <action
+            android:id="@+id/action_mainSaumFragment_to_muharramSaumFragment"
+            app:destination="@id/muharramSaumFragment" />
+        <action
+            android:id="@+id/action_mainSaumFragment_to_todaySaumFragment"
+            app:destination="@id/todaySaumFragment" />
+        <action
+            android:id="@+id/action_mainSaumFragment_to_shaawalSaumFragment"
+            app:destination="@id/shaawalSaumFragment" />
     </fragment>
     <fragment
         android:id="@+id/ramadanSaumFragment"
@@ -44,11 +65,41 @@
     <fragment
         android:id="@+id/duaFragment"
         android:name="raf.tabiin.saum.ui.dua.DuaFragment"
-        android:label="fragment_dua"
+        android:label="Дуа"
         tools:layout="@layout/fragment_dua" />
     <fragment
         android:id="@+id/hadithSaumFragment"
         android:name="raf.tabiin.saum.ui.hadith.HadithSaumFragment"
-        android:label="fragment_hadith_saum"
+        android:label="Хадисы о посте"
         tools:layout="@layout/fragment_hadith_saum" />
+    <fragment
+        android:id="@+id/MTFragment"
+        android:name="raf.tabiin.saum.ui.saum.monday_thursday.MTFragment"
+        android:label="Пост по понедельникам и четвергам"
+        tools:layout="@layout/fragment_m_t" />
+    <fragment
+        android:id="@+id/whiteDaysSaumFragment"
+        android:name="raf.tabiin.saum.ui.saum.WhiteDaysSaumFragment"
+        android:label="Пост в белые дни"
+        tools:layout="@layout/fragment_white_days_saum" />
+    <fragment
+        android:id="@+id/zulHijaSaumFragment"
+        android:name="raf.tabiin.saum.ui.saum.ZulHijaSaumFragment"
+        android:label="Пост в месяц Зуль-Хиджа"
+        tools:layout="@layout/fragment_zul_hija_saum" />
+    <fragment
+        android:id="@+id/shaawalSaumFragment"
+        android:name="raf.tabiin.saum.ui.saum.ShaawalSaumFragment"
+        android:label="Пост в месяц Шааваль"
+        tools:layout="@layout/fragment_shaawal_saum" />
+    <fragment
+        android:id="@+id/muharramSaumFragment"
+        android:name="raf.tabiin.saum.ui.saum.MuharramSaumFragment"
+        android:label="Пост в месяц Мухаррам"
+        tools:layout="@layout/fragment_muharram_saum" />
+    <fragment
+        android:id="@+id/todaySaumFragment"
+        android:name="raf.tabiin.saum.ui.saum.TodaySaumFragment"
+        android:label="Пост Сегодня "
+        tools:layout="@layout/fragment_today_saum" />
 </navigation>

@@ -31,7 +31,7 @@ public class MainSaumFragment extends Fragment {
         NavController navController = Navigation.findNavController(view);
 
         binding.todaySaumCard.setOnClickListener(v -> {
-
+            navController.navigate(R.id.action_mainSaumFragment_to_todaySaumFragment);
         });
 
         binding.ramadanSaumCard.setOnClickListener(v -> {
@@ -39,33 +39,23 @@ public class MainSaumFragment extends Fragment {
         });
 
         binding.shaawalSaumCard.setOnClickListener(v -> {
-            /* getFragmentManager().beginTransaction()
-                    .replace(R.id.containerFragment, new ShaawalSaumFragment())
-                    .commit(); */
+            navController.navigate(R.id.action_mainSaumFragment_to_shaawalSaumFragment);
         });
 
         binding.zulHijaSaumCard.setOnClickListener(v -> {
-            /* getFragmentManager().beginTransaction()
-                    .replace(R.id.containerFragment, new ZulHijaSaumFragment())
-                    .commit(); */
+            navController.navigate(R.id.action_mainSaumFragment_to_zulHijaSaumFragment);
         });
 
         binding.monThursSaumCard.setOnClickListener(v -> {
-            /* getFragmentManager().beginTransaction()
-                    .replace(R.id.containerFragment, new MTFragment())
-                    .commit(); */
+            navController.navigate(R.id.action_mainSaumFragment_to_MTFragment);
         });
 
         binding.wdSaumCard.setOnClickListener(v -> {
-            /* getFragmentManager().beginTransaction()
-                    .replace(R.id.containerFragment, new WhiteDaysSaumFragment())
-                    .commit(); */
+            navController.navigate(R.id.action_mainSaumFragment_to_whiteDaysSaumFragment);
         });
 
         binding.muharramSaumCard.setOnClickListener(v -> {
-            /* getFragmentManager().beginTransaction()
-                    .replace(R.id.containerFragment, new MuharramSaumFragment())
-                    .commit(); */
+            navController.navigate(R.id.action_mainSaumFragment_to_muharramSaumFragment);
         });
     }
 
