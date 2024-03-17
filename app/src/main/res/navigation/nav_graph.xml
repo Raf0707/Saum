@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainSaumFragment">
+
+    <fragment
+        android:id="@+id/mainSaumFragment"
+        android:name="raf.tabiin.saum.ui.saum.MainSaumFragment"
+        android:label="Главная"
+        tools:layout="@layout/fragment_main_saum" >
+        <action
+            android:id="@+id/action_mainSaumFragment_to_ramadanSaumFragment"
+            app:destination="@id/ramadanSaumFragment" />
+        <action
+            android:id="@+id/action_mainSaumFragment_to_settingsFragment2"
+            app:destination="@id/settingsFragment2" />
+        <action
+            android:id="@+id/action_mainSaumFragment_to_appAboutFragment"
+            app:destination="@id/appAboutFragment" />
+        <action
+            android:id="@+id/action_mainSaumFragment_to_duaFragment"
+            app:destination="@id/duaFragment" />
+        <action
+            android:id="@+id/action_mainSaumFragment_to_hadithSaumFragment"
+            app:destination="@id/hadithSaumFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ramadanSaumFragment"
+        android:name="raf.tabiin.saum.ui.saum.RamadanSaumFragment"
+        android:label="Пост в месяц Рамадан"
+        tools:layout="@layout/fragment_post_ramadan" />
+    <fragment
+        android:id="@+id/appAboutFragment"
+        android:name="raf.tabiin.saum.ui.about_app.AppAboutFragment"
+        android:label="О приложении"
+        tools:layout="@layout/fragment_app_about" />
+    <fragment
+        android:id="@+id/settingsFragment2"
+        android:name="raf.tabiin.saum.ui.settings.SettingsFragment"
+        android:label="Настройки"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/duaFragment"
+        android:name="raf.tabiin.saum.ui.dua.DuaFragment"
+        android:label="fragment_dua"
+        tools:layout="@layout/fragment_dua" />
+    <fragment
+        android:id="@+id/hadithSaumFragment"
+        android:name="raf.tabiin.saum.ui.hadith.HadithSaumFragment"
+        android:label="fragment_hadith_saum"
+        tools:layout="@layout/fragment_hadith_saum" />
+</navigation>
