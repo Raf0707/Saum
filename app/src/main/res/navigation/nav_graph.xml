@@ -84,7 +84,7 @@
         tools:layout="@layout/fragment_white_days_saum" />
     <fragment
         android:id="@+id/zulHijaSaumFragment"
-        android:name="raf.tabiin.saum.ui.saum.ZulHijaSaumFragment"
+        android:name="raf.tabiin.saum.ui.saum.ZulhijaSaumFragment"
         android:label="Пост в месяц Зуль-Хиджа"
         tools:layout="@layout/fragment_zul_hija_saum" />
     <fragment

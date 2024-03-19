@@ -11,15 +11,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import raf.tabiin.saum.R;
-import raf.tabiin.saum.domain.models.RamadanDay;
+import raf.tabiin.saum.domain.models.ShaawalDay;
 
-public class RamadanDaysAdapter extends RecyclerView.Adapter<RamadanDaysAdapter.ViewHolder> {
+public class ShaawalDaysAdapter extends RecyclerView.Adapter<ShaawalDaysAdapter.ViewHolder> {
 
-    private List<RamadanDay> ramadanDaysList;
+    private List<ShaawalDay> ShaawalDaysList;
     private OnCheckedChangeListener listener;
 
-    public RamadanDaysAdapter(List<RamadanDay> ramadanDaysList, OnCheckedChangeListener listener) {
-        this.ramadanDaysList = ramadanDaysList;
+    public ShaawalDaysAdapter(List<ShaawalDay> ShaawalDaysList, OnCheckedChangeListener listener) {
+        this.ShaawalDaysList = ShaawalDaysList;
         this.listener = listener;
     }
 
@@ -32,12 +32,12 @@ public class RamadanDaysAdapter extends RecyclerView.Adapter<RamadanDaysAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.bind(ramadanDaysList.get(position));
+        holder.bind(ShaawalDaysList.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return ramadanDaysList.size();
+        return ShaawalDaysList.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
@@ -49,16 +49,16 @@ public class RamadanDaysAdapter extends RecyclerView.Adapter<RamadanDaysAdapter.
             checkBox = itemView.findViewById(R.id.checkbox_saum_day);
         }
 
-        void bind(final RamadanDay ramadanDay) {
-            checkBox.setText(ramadanDay.getDay());
-            checkBox.setChecked(ramadanDay.isChecked());
+        void bind(final ShaawalDay ShaawalDay) {
+            checkBox.setText(ShaawalDay.getDay());
+            checkBox.setChecked(ShaawalDay.isChecked());
 
             checkBox.setOnCheckedChangeListener(null);
 
             checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
-                ramadanDay.setChecked(isChecked);
+                ShaawalDay.setChecked(isChecked);
                 if (listener != null) {
-                    listener.onCheckedChanged(ramadanDay);
+                    listener.onCheckedChanged(ShaawalDay);
                     int checkedCount = getCheckedCount();
                     listener.onCheckedCountChanged(checkedCount);
                 }
@@ -68,8 +68,8 @@ public class RamadanDaysAdapter extends RecyclerView.Adapter<RamadanDaysAdapter.
 
     public int getCheckedCount() {
         int count = 0;
-        for (RamadanDay ramadanDay : ramadanDaysList) {
-            if (ramadanDay.isChecked()) {
+        for (ShaawalDay ShaawalDay : ShaawalDaysList) {
+            if (ShaawalDay.isChecked()) {
                 count++;
             }
         }
@@ -77,7 +77,7 @@ public class RamadanDaysAdapter extends RecyclerView.Adapter<RamadanDaysAdapter.
     }
 
     public interface OnCheckedChangeListener {
-        void onCheckedChanged(RamadanDay ramadanDay);
+        void onCheckedChanged(ShaawalDay ShaawalDay);
         void onCheckedCountChanged(int count);
     }
 

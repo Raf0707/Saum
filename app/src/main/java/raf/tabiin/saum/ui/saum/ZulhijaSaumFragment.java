@@ -22,80 +22,84 @@ import java.io.IOException;
 import java.util.List;
 
 import raf.tabiin.saum.R;
-import raf.tabiin.saum.databinding.FragmentShaawalSaumBinding;
-import raf.tabiin.saum.domain.models.ShaawalDay;
-import raf.tabiin.saum.adapters.ShaawalDaysAdapter;
+import raf.tabiin.saum.databinding.FragmentZulHijaSaumBinding;
+import raf.tabiin.saum.domain.models.ZulhijaDay;
+import raf.tabiin.saum.adapters.ZulhijaDaysAdapter;
 import raf.tabiin.saum.util.FileUtils;
-import raf.tabiin.saum.viewmodel.ShaawalDaysViewModel;
+import raf.tabiin.saum.viewmodel.ZulhijaDaysViewModel;
 
-public class ShaawalSaumFragment extends Fragment {
-    private FragmentShaawalSaumBinding binding;
-    private ShaawalDaysAdapter adapter;
-    private ShaawalDaysViewModel viewModel;
+public class ZulhijaSaumFragment extends Fragment {
+    private FragmentZulHijaSaumBinding binding;
+    private ZulhijaDaysAdapter adapter;
+    private ZulhijaDaysViewModel viewModel;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        viewModel = new ViewModelProvider(requireActivity()).get(ShaawalDaysViewModel.class);
+        viewModel = new ViewModelProvider(requireActivity()).get(ZulhijaDaysViewModel.class);
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = FragmentShaawalSaumBinding.inflate(inflater, container, false);
+        binding = FragmentZulHijaSaumBinding.inflate(inflater, container, false);
 
-        binding.recyclerViewShaawalDays.setLayoutManager(new GridLayoutManager(getActivity(), 3));
-        List<ShaawalDay> ShaawalDaysList = viewModel.getShaawalDaysList();
-        adapter = new ShaawalDaysAdapter(ShaawalDaysList, new ShaawalDaysAdapter.OnCheckedChangeListener() {
+        binding.recyclerViewZulhijaDays.setLayoutManager(new GridLayoutManager(getActivity(), 3));
+        List<ZulhijaDay> ZulhijaDaysList = viewModel.getZulhijaDaysList();
+        adapter = new ZulhijaDaysAdapter(ZulhijaDaysList, new ZulhijaDaysAdapter.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(ShaawalDay ShaawalDay) {
-                saveShaawalDaysToJson();
+            public void onCheckedChanged(ZulhijaDay ZulhijaDay) {
+                saveZulhijaDaysToJson();
             }
 
             @Override
             public void onCheckedCountChanged(int count) {
-                binding.postShaawalProgressBar.setProgress(count);
+                binding.postZulhijaProgressBar.setProgress(count);
                 binding.itogPost.setText(String.valueOf(count));
             }
         });
-
-        binding.recyclerViewShaawalDays.setAdapter(adapter);
+        binding.recyclerViewZulhijaDays.setAdapter(adapter);
 
         binding.buttonReset.setOnClickListener(v -> {
-            binding.postShaawalProgressBar.setProgress(0);
+            binding.postZulhijaProgressBar.setProgress(0);
             binding.itogPost.setText(String.valueOf(0));
             onAlert();
-            loadShaawalDays();
+            loadZulhijaDays();
             adapter.notifyDataSetChanged();
         });
 
-        loadShaawalDays();
+        loadZulhijaDays();
 
         int checkedCount = adapter.getCheckedCount();
-        binding.postShaawalProgressBar.setProgress(checkedCount);
+        binding.postZulhijaProgressBar.setProgress(checkedCount);
         binding.itogPost.setText(String.valueOf(checkedCount));
 
         return binding.getRoot();
     }
 
-    private void loadShaawalDays() {
-        List<ShaawalDay> ShaawalDaysList = viewModel.getShaawalDaysList();
+    private void loadZulhijaDays() {
+        List<ZulhijaDay> ZulhijaDaysList = viewModel.getZulhijaDaysList();
         try {
             File internalDir = getActivity().getFilesDir();
-            File ShaawalDaysFile = new File(internalDir, "shaawal_days.json");
-            String json = FileUtils.readFileToString(ShaawalDaysFile);
+            File ZulhijaDaysFile = new File(internalDir, "zulhija_days.json");
+            String json = FileUtils.readFileToString(ZulhijaDaysFile);
 
             JSONObject jsonObject = new JSONObject(json);
-            JSONArray jsonArray = jsonObject.getJSONArray("shaawal_days");
+            JSONArray jsonArray = jsonObject.getJSONArray("zulhija_days");
 
             // Очистка списка перед загрузкой новых данных
-            ShaawalDaysList.clear();
+            ZulhijaDaysList.clear();
 
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject dayObject = jsonArray.getJSONObject(i);
-                String day = dayObject.getString("day");
+                String day;
+                if (i == 8) {
+                    day = dayObject.getString("day") + " День Арафата";
+                } else {
+                    day = dayObject.getString("day");
+                }
                 boolean isChecked = dayObject.getBoolean("is_checked");
-                ShaawalDaysList.add(new ShaawalDay(day, isChecked));
+                ZulhijaDaysList.add(new ZulhijaDay(day, isChecked));
             }
 
             adapter.notifyDataSetChanged();
@@ -104,45 +108,45 @@ public class ShaawalSaumFragment extends Fragment {
         }
     }
 
-    private void saveShaawalDaysToJson() {
-        List<ShaawalDay> ShaawalDaysList = viewModel.getShaawalDaysList();
+    private void saveZulhijaDaysToJson() {
+        List<ZulhijaDay> ZulhijaDaysList = viewModel.getZulhijaDaysList();
         try {
             JSONArray jsonArray = new JSONArray();
-            for (ShaawalDay ShaawalDay : ShaawalDaysList) {
+            for (ZulhijaDay ZulhijaDay : ZulhijaDaysList) {
                 JSONObject dayObject = new JSONObject();
-                dayObject.put("day", ShaawalDay.getDay());
-                dayObject.put("is_checked", ShaawalDay.isChecked());
+                dayObject.put("day", ZulhijaDay.getDay());
+                dayObject.put("is_checked", ZulhijaDay.isChecked());
                 jsonArray.put(dayObject);
             }
 
             JSONObject jsonObject = new JSONObject();
-            jsonObject.put("shaawal_days", jsonArray);
+            jsonObject.put("zulhija_days", jsonArray);
 
             String json = jsonObject.toString();
-            FileUtils.writeStringToFile(getActivity(), json, "shaawal_days.json");
+            FileUtils.writeStringToFile(getActivity(), json, "zulhija_days.json");
         } catch (JSONException | IOException e) {
             e.printStackTrace();
         }
     }
 
     private void resetJsonFile() {
-        List<ShaawalDay> ShaawalDaysList = viewModel.getShaawalDaysList();
+        List<ZulhijaDay> ZulhijaDaysList = viewModel.getZulhijaDaysList();
         try {
             JSONArray jsonArray = new JSONArray();
-            for (int i = 1; i <= 6; i++) {
+            for (int i = 1; i <= 9; i++) {
                 JSONObject dayObject = new JSONObject();
                 dayObject.put("day", String.valueOf(i));
                 dayObject.put("is_checked", false);
                 jsonArray.put(dayObject);
-                // Добавляем в список ShaawalDaysList
-                ShaawalDaysList.add(new ShaawalDay(String.valueOf(i), false));
+                // Добавляем в список ZulhijaDaysList
+                ZulhijaDaysList.add(new ZulhijaDay(String.valueOf(i), false));
             }
 
             JSONObject jsonObject = new JSONObject();
-            jsonObject.put("shaawal_days", jsonArray);
+            jsonObject.put("zulhija_days", jsonArray);
 
             String json = jsonObject.toString();
-            FileUtils.writeStringToFile(getActivity(), json, "shaawal_days.json");
+            FileUtils.writeStringToFile(getActivity(), json, "zulhija_days.json");
 
         } catch (JSONException | IOException e) {
             e.printStackTrace();
@@ -156,11 +160,11 @@ public class ShaawalSaumFragment extends Fragment {
                 .setMessage("Обновить счетчик дней?")
                 .setPositiveButton("Да", (dialogInterface, i) -> {
 
-                    binding.postShaawalProgressBar.setProgress(0);
+                    binding.postZulhijaProgressBar.setProgress(0);
                     binding.itogPost.setText(String.valueOf(0));
 
                     resetJsonFile();
-                    loadShaawalDays();
+                    loadZulhijaDays();
                 })
 
                 .setNeutralButton("Отмена",

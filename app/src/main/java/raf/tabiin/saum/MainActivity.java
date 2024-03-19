@@ -92,11 +92,42 @@ public class MainActivity extends AppCompatActivity {
 
     private void copyJsonFromAssetsIfNeeded() {
         File internalDir = getFilesDir();
+
         File ramadanDaysFile = new File(internalDir, "ramadan_days.json");
 
         if (!ramadanDaysFile.exists()) {
             try {
                 FileUtils.copyAssetToFile(getAssets(), "ramadan_days.json", ramadanDaysFile);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        File shaawalDaysFile = new File(internalDir, "shaawal_days.json");
+
+        if (!shaawalDaysFile.exists()) {
+            try {
+                FileUtils.copyAssetToFile(getAssets(), "shaawal_days.json", ramadanDaysFile);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        File muharramDaysFile = new File(internalDir, "muharram_days.json");
+
+        if (!muharramDaysFile.exists()) {
+            try {
+                FileUtils.copyAssetToFile(getAssets(), "muharram_days.json", ramadanDaysFile);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        File zulhijaDaysFile = new File(internalDir, "zulhija_days.json");
+
+        if (!zulhijaDaysFile.exists()) {
+            try {
+                FileUtils.copyAssetToFile(getAssets(), "zulhija_days.json", ramadanDaysFile);
             } catch (IOException e) {
                 e.printStackTrace();
             }

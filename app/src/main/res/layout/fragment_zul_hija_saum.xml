@@ -1,162 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="raf.tabiin.saum.ui.saum.ZulHijaSaumFragment">
+    tools:context="raf.tabiin.saum.ui.saum.ZulhijaSaumFragment">
 
 
-    <CheckBox
-        android:id="@+id/z9"
-        android:layout_width="wrap_content"
-        android:layout_height="34dp"
-
-        android:checked="false"
-        android:text="9 - день Арафата"
-        android:textSize="19sp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_Zulhija_days"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="180dp"
+        android:layout_marginBottom="200dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.928"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.437" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <CheckBox
-        android:id="@+id/z8"
-        android:layout_width="wrap_content"
-        android:layout_height="34dp"
-
-        android:checked="false"
-        android:text="8"
-        android:textSize="19sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.573"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.341" />
-
-    <CheckBox
-        android:id="@+id/z1"
-        android:layout_width="wrap_content"
-        android:layout_height="34dp"
-
-        android:checked="false"
-        android:text="1"
-        android:textSize="19sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.044"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.245" />
-
-    <CheckBox
-        android:id="@+id/z3"
-        android:layout_width="wrap_content"
-        android:layout_height="34dp"
-
-        android:checked="false"
-        android:text="3"
-        android:textSize="19sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.044"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.437" />
-
-    <CheckBox
-        android:id="@+id/z2"
-        android:layout_width="wrap_content"
-        android:layout_height="34dp"
-
-        android:checked="false"
-        android:text="2"
-        android:textSize="19sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.044"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.341" />
-
-    <CheckBox
-        android:id="@+id/z5"
-        android:layout_width="wrap_content"
-        android:layout_height="34dp"
-
-        android:checked="false"
-        android:text="5"
-        android:textSize="19sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.308"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.341" />
-
-    <CheckBox
-        android:id="@+id/z4"
-        android:layout_width="wrap_content"
-        android:layout_height="34dp"
-
-        android:checked="false"
-        android:text="4"
-        android:textSize="19sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.308"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.245" />
-
-    <CheckBox
-        android:id="@+id/z6"
-        android:layout_width="wrap_content"
-        android:layout_height="34dp"
-
-        android:checked="false"
-        android:text="6"
-        android:textSize="19sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.308"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.437" />
-
-    <CheckBox
-        android:id="@+id/z7"
-        android:layout_width="wrap_content"
-        android:layout_height="34dp"
-
-        android:checked="false"
-        android:text="7"
-        android:textSize="19sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.573"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.245" />
 
     <TextView
-        android:id="@+id/post_v_mesiats_shaawal"
         style="@style/Theme.Ramadan"
         android:layout_width="match_parent"
-        android:layout_height="46dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
         android:gravity="center"
-        android:text="Пост в месяц Зуль Хиджа"
-        android:textSize="30sp"
+        android:text="Если вы в хадже и вы находитесь на горе Арафат, то в день Ашура вам пост держать запрещено"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.129" />
-
+        app:layout_constraintVertical_bias="0.159" />
 
     <TextView
         android:id="@+id/total"
@@ -164,14 +44,27 @@
         android:layout_height="70dp"
         android:gravity="center"
         android:text="9"
-
         android:textSize="50sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.469"
+        app:layout_constraintHorizontal_bias="0.639"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.664" />
+        app:layout_constraintVertical_bias="0.865" />
+
+
+
+    <Button
+        android:id="@+id/button_reset"
+        android:layout_width="88dp"
+        android:layout_height="54dp"
+        android:text="reset"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.973" />
 
     <TextView
         android:id="@+id/itogPost"
@@ -183,25 +76,28 @@
         android:textSize="50sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.175"
+        app:layout_constraintHorizontal_bias="0.346"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.664" />
+        app:layout_constraintVertical_bias="0.865" />
 
-    <Button
-        android:id="@+id/button_reset_z"
-        android:layout_width="88dp"
-        android:layout_height="54dp"
-        android:text="reset"
+    <TextView
+        android:id="@+id/slesh"
+        android:layout_width="30dp"
+        android:layout_height="70dp"
+        android:gravity="center"
+        android:text="/"
+
+        android:textSize="50sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.318"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.816" />
+        app:layout_constraintVertical_bias="0.865" />
 
     <com.google.android.material.progressindicator.LinearProgressIndicator
-        android:id="@+id/postZulHijaProgressBar"
+        android:id="@+id/postZulhijaProgressBar"
         android:layout_width="240dp"
         android:layout_height="37dp"
         android:indeterminate="false"
@@ -210,26 +106,12 @@
         android:scaleY="5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.163"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.572"
+        app:layout_constraintVertical_bias="0.755"
         app:trackCornerRadius="16dp"
         app:trackThickness="4dp" />
-
-    <TextView
-        android:id="@+id/slesh"
-        android:layout_width="30dp"
-        android:layout_height="70dp"
-        android:gravity="center"
-        android:text="/"
-        android:textSize="50sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.341"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.664" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,28 @@
+{
+  "ramadan_days": [
+    {
+      "day": "1",
+      "is_checked": false
+    },
+    {
+      "day": "2",
+      "is_checked": false
+    },
+    {
+      "day": "3",
+      "is_checked": false
+    },
+    {
+      "day": "4",
+      "is_checked": false
+    },
+    {
+      "day": "5",
+      "is_checked": false
+    },
+    {
+      "day": "6",
+      "is_checked": false
+    }
+  ]
+}
