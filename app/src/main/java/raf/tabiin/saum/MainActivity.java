@@ -1,5 +1,8 @@
 package raf.tabiin.saum;
 
+import static android.text.TextUtils.indexOf;
+import static android.text.TextUtils.lastIndexOf;
+
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -8,9 +11,9 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+import android.icu.util.IslamicCalendar;
 
 import android.content.res.AssetManager;
-import android.icu.util.IslamicCalendar;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -70,15 +73,27 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(binding.toolbar, navController, appBarConfiguration);
 
         Calendar gregorianCalendar = Calendar.getInstance();
-        String gregorianDate = gregorianCalendar.get(Calendar.DAY_OF_MONTH) + "/"
-                + (gregorianCalendar.get(Calendar.MONTH) + 1) + "/"
-                + gregorianCalendar.get(Calendar.YEAR);
-        binding.dateTextView.setText("Gregorian Date: " + gregorianDate);
+        String gregorianDate;
+        if (Calendar.MONTH < 10) {
+            gregorianDate = gregorianCalendar.get(Calendar.DAY_OF_MONTH) + ".0"
+                    + (gregorianCalendar.get(Calendar.MONTH) + 1) + "."
+                    + gregorianCalendar.get(Calendar.YEAR);
+        } else {
+            gregorianDate = gregorianCalendar.get(Calendar.DAY_OF_MONTH) + "."
+                    + (gregorianCalendar.get(Calendar.MONTH) + 1) + "."
+                    + gregorianCalendar.get(Calendar.YEAR);
+        }
+        binding.dateTextViewGr.setText(gregorianDate);
 
         IslamicCalendar islamicCalendar = new IslamicCalendar(gregorianCalendar.getTime());
-        String hijriDate = islamicCalendar.getDateTimeFormat(DateFormat.MEDIUM, DateFormat.MEDIUM,
+        String hijriDate = islamicCalendar.getDateTimeFormat(DateFormat.SHORT, DateFormat.SHORT,
+                new Locale("ru")).format(new Date()).substring(0, 10);
+        binding.dateTextViewIcShort.setText(hijriDate);
+
+        String hijriDateFull = islamicCalendar.getDateTimeFormat(DateFormat.FULL, DateFormat.FULL,
                 new Locale("ru")).format(new Date());
-        binding.dateTextView.append("nHijri Date: " + hijriDate);
+        hijriDateFull = hijriDateFull.substring(0, hijriDateFull.lastIndexOf('.')) + ".";
+        binding.dateTextViewIcFull.setText(hijriDateFull);
     }
 
     @Override
