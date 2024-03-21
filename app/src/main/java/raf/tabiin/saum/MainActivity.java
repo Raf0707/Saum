@@ -1,5 +1,6 @@
 package raf.tabiin.saum;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.splashscreen.SplashScreen;
@@ -9,6 +10,8 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import android.content.res.AssetManager;
+import android.icu.util.IslamicCalendar;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -28,6 +31,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.text.DateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 import raf.tabiin.saum.databinding.ActivityMainBinding;
 import raf.tabiin.saum.ui.about_app.AppAboutFragment;
@@ -42,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
     private NavController navController;
     private ActivityMainBinding binding;
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +68,17 @@ public class MainActivity extends AppCompatActivity {
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupWithNavController(binding.bottomAppBar, navController);
         NavigationUI.setupWithNavController(binding.toolbar, navController, appBarConfiguration);
+
+        Calendar gregorianCalendar = Calendar.getInstance();
+        String gregorianDate = gregorianCalendar.get(Calendar.DAY_OF_MONTH) + "/"
+                + (gregorianCalendar.get(Calendar.MONTH) + 1) + "/"
+                + gregorianCalendar.get(Calendar.YEAR);
+        binding.dateTextView.setText("Gregorian Date: " + gregorianDate);
+
+        IslamicCalendar islamicCalendar = new IslamicCalendar(gregorianCalendar.getTime());
+        String hijriDate = islamicCalendar.getDateTimeFormat(DateFormat.MEDIUM, DateFormat.MEDIUM,
+                new Locale("ru")).format(new Date());
+        binding.dateTextView.append("nHijri Date: " + hijriDate);
     }
 
     @Override

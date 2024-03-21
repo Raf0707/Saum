@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -79,6 +80,18 @@ public class MTFragment extends Fragment implements SaumAdapter.HandleCounterCli
                 return true;
             }
         });
+
+        b.recycleSaum.addOnScrollListener (
+                new RecyclerView.OnScrollListener() {
+                    @Override
+                    public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                        if (dy < 0 && !b.fabAddSaum.isShown())
+                            b.fabAddSaum.show();
+                        else if (dy > 0 && b.fabAddSaum.isShown())
+                            b.fabAddSaum.hide();
+                    }
+                }
+        );
 
         b.searchSaums.setOnClickListener(v -> {
             b.searchSaums.clearFocus();
@@ -192,12 +205,6 @@ public class MTFragment extends Fragment implements SaumAdapter.HandleCounterCli
             }
         }
     }
-
-    /*public void exportDataToMainFragment() {
-        Bundle bundle = new Bundle();
-        FragmentManager fragmentManager = getFragmentManager();
-        bundle.putInt("monthurs", progress);
-    }*/
 
     @Override
     public void itemClick(SaumItem counterItem) {
