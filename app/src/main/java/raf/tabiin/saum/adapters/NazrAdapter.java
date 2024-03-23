@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,6 +18,7 @@ import raf.tabiin.saum.domain.models.NazrItem;
 
 public class NazrAdapter extends RecyclerView.Adapter<NazrAdapter.MyViewHolder> {
 
+    private int counter = 0;
     private Context context;
     private List<NazrItem> nazrList;
     HandleCounterClick clickListener;
@@ -45,10 +48,75 @@ public class NazrAdapter extends RecyclerView.Adapter<NazrAdapter.MyViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
+        CheckBox day1 = holder.binding.day1;
+        CheckBox day2 = holder.binding.day2;
+        CheckBox day3 = holder.binding.day3;
+
         holder.binding.titleNazr.setText(this.nazrList.get(position).titleNazr);
         holder.binding.textNazar.setText(new StringBuilder()
                 .append(this.nazrList.get(position).textNazr).toString());
-        holder.binding.done.setOnCheckedChangeListener((buttonView, isChecked) -> onCountCheck(isChecked, holder));
+        holder.binding.day1.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (day1.isChecked()) {
+                counter++;
+                holder.binding.progressNazr.setProgress(counter);
+                if (day1.isChecked() && day2.isChecked() && day3.isChecked()) {
+                    holder.binding.done.setChecked(true);
+                } else {
+                    holder.binding.done.setChecked(false);
+                }
+            } else {
+                counter--;
+                holder.binding.progressNazr.setProgress(counter);
+                if (day1.isChecked() && day2.isChecked() && day3.isChecked()) {
+                    holder.binding.done.setChecked(true);
+                } else {
+                    holder.binding.done.setChecked(false);
+                }
+            }
+        });
+
+        holder.binding.day2.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (day2.isChecked()) {
+                counter++;
+                holder.binding.progressNazr.setProgress(counter);
+                if (day1.isChecked() && day2.isChecked() && day3.isChecked()) {
+                    holder.binding.done.setChecked(true);
+                } else {
+                    holder.binding.done.setChecked(false);
+                }
+            } else {
+                counter--;
+                holder.binding.progressNazr.setProgress(counter);
+                if (day1.isChecked() && day2.isChecked() && day3.isChecked()) {
+                    holder.binding.done.setChecked(true);
+                } else {
+                    holder.binding.done.setChecked(false);
+                }
+            }
+        });
+
+        holder.binding.day3.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (day3.isChecked()) {
+                counter++;
+                holder.binding.progressNazr.setProgress(counter);
+                if (day1.isChecked() && day2.isChecked() && day3.isChecked()) {
+                    holder.binding.done.setChecked(true);
+                } else {
+                    holder.binding.done.setChecked(false);
+                }
+            } else {
+                counter--;
+                holder.binding.progressNazr.setProgress(counter);
+                if (day1.isChecked() && day2.isChecked() && day3.isChecked()) {
+                    holder.binding.done.setChecked(true);
+                } else {
+                    holder.binding.done.setChecked(false);
+                }
+            }
+        });
+        holder.binding.done.setOnCheckedChangeListener(
+                (buttonView, isChecked) -> onCountCheck(isChecked, day1, day2, day3, holder));
+
         //holder.binding.progressMT.setProgress(this.saumList.get(position).progress);
 
 
@@ -72,11 +140,18 @@ public class NazrAdapter extends RecyclerView.Adapter<NazrAdapter.MyViewHolder> 
     }
 
 
-    public void onCountCheck(boolean isChecked, MyViewHolder holder) {
+    public void onCountCheck(boolean isChecked, CheckBox day1, CheckBox day2, CheckBox day3,
+                             MyViewHolder holder) {
         if (isChecked) {
             holder.binding.progressNazr.setProgress(3);
+            day1.setChecked(true);
+            day2.setChecked(true);
+            day3.setChecked(true);
         } else {
             holder.binding.progressNazr.setProgress(0);
+            day1.setChecked(false);
+            day2.setChecked(false);
+            day3.setChecked(false);
         }
 
         if (holder.binding.progressNazr.getProgress() == 3) {
@@ -85,6 +160,13 @@ public class NazrAdapter extends RecyclerView.Adapter<NazrAdapter.MyViewHolder> 
         } else {
             isChecked = false;
             holder.binding.done.setChecked(isChecked);
+        }
+
+
+        if (day1.isChecked() && day2.isChecked() && day3.isChecked()) {
+            holder.binding.done.setChecked(true);
+        } else {
+            holder.binding.done.setChecked(false);
         }
     }
 

@@ -21,11 +21,18 @@ public abstract class SaumDatabase extends RoomDatabase {
         if (INSTANCE == null) {
             INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                             SaumDatabase.class, "saum_database")
-                    .allowMainThreadQueries().build(); //.fallbackToDestructiveMigration()
+                    .allowMainThreadQueries()
+                    .setJournalMode(JournalMode.TRUNCATE)
+                    .fallbackToDestructiveMigration()
+                    .build();
         }
         return INSTANCE;
     }
 
+    public static void destroyInstance(){
+        if (INSTANCE.isOpen()) INSTANCE.close();
+        INSTANCE = null;
+    }
 
 }
 
