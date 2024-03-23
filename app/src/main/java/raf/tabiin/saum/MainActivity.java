@@ -127,41 +127,18 @@ public class MainActivity extends AppCompatActivity {
     private void copyJsonFromAssetsIfNeeded() {
         File internalDir = getFilesDir();
 
-        File ramadanDaysFile = new File(internalDir, "ramadan_days.json");
+        copyAssetIfNeeded("ramadan_days.json", internalDir);
+        copyAssetIfNeeded("shaawal_days.json", internalDir);
+        copyAssetIfNeeded("muharram_days.json", internalDir);
+        copyAssetIfNeeded("zulhija_days.json", internalDir);
+    }
 
-        if (!ramadanDaysFile.exists()) {
+    private void copyAssetIfNeeded(String fileName, File destinationDir) {
+        File destinationFile = new File(destinationDir, fileName);
+
+        if (!destinationFile.exists()) {
             try {
-                FileUtils.copyAssetToFile(getAssets(), "ramadan_days.json", ramadanDaysFile);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-        File shaawalDaysFile = new File(internalDir, "shaawal_days.json");
-
-        if (!shaawalDaysFile.exists()) {
-            try {
-                FileUtils.copyAssetToFile(getAssets(), "shaawal_days.json", ramadanDaysFile);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-        File muharramDaysFile = new File(internalDir, "muharram_days.json");
-
-        if (!muharramDaysFile.exists()) {
-            try {
-                FileUtils.copyAssetToFile(getAssets(), "muharram_days.json", ramadanDaysFile);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-        File zulhijaDaysFile = new File(internalDir, "zulhija_days.json");
-
-        if (!zulhijaDaysFile.exists()) {
-            try {
-                FileUtils.copyAssetToFile(getAssets(), "zulhija_days.json", ramadanDaysFile);
+                FileUtils.copyAssetToFile(getAssets(), fileName, destinationFile);
             } catch (IOException e) {
                 e.printStackTrace();
             }

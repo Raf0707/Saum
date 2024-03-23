@@ -1,4 +1,4 @@
-package raf.tabiin.saum.ui.saum.monday_thursday;
+package raf.tabiin.saum.viewmodel;
 
 import android.app.Application;
 

@@ -1,11 +1,10 @@
-package raf.tabiin.saum.ui.saum.monday_thursday;
+package raf.tabiin.saum.ui.saum;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,13 +21,13 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import raf.tabiin.saum.R;
 import raf.tabiin.saum.adapters.SaumAdapter;
 import raf.tabiin.saum.databinding.FragmentMTBinding;
 import raf.tabiin.saum.domain.database.SaumDatabase;
 import raf.tabiin.saum.domain.models.SaumItem;
+import raf.tabiin.saum.viewmodel.SaumViewModel;
 
 
 public class MTFragment extends Fragment implements SaumAdapter.HandleCounterClick {

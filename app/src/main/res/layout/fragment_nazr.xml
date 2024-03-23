@@ -5,11 +5,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.saum.MTFragment">
+    tools:context=".ui.saum.NazrFragment">
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycleSaum"
+        android:id="@+id/recycleNazr"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="120dp"
@@ -22,7 +22,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabAddSaum"
+        android:id="@+id/fabAddNazr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
@@ -33,7 +33,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recycleNazr"
         app:layout_constraintVertical_bias="1.0"
         app:tint="@color/white" />
 
@@ -42,7 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="No Saums"
+        android:text="No Nazr Saums"
         android:textColor="@color/purple_300"
         android:textSize="31sp"
         android:visibility="gone"
@@ -54,8 +54,8 @@
     </TextView>
 
     <android.widget.SearchView
-        android:id="@+id/searchSaums"
-        android:queryHint="Search Saum"
+        android:id="@+id/searchNazrs"
+        android:queryHint="Search Nazr"
         android:iconifiedByDefault="false"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

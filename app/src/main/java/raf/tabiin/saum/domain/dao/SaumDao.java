@@ -32,7 +32,7 @@ public interface SaumDao {
     int getSaumID(long id);
 
     @Insert
-    void insertAll(SaumItem... saumItems);
+    void insertAll(SaumItem...saumItems);
 
     @Insert
     void insertSaum(SaumItem saumItem);

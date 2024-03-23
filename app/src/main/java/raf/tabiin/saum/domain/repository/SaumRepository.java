@@ -38,43 +38,43 @@ public class SaumRepository {
     }
 
     private static class InsertTask extends AsyncTask<SaumItem, Void, Void> {
-        private SaumDao сounterDao;
+        private SaumDao saumDao;
 
-        public InsertTask(SaumDao сounterDao) {
-            this.сounterDao = сounterDao;
+        public InsertTask(SaumDao saumDao) {
+            this.saumDao = saumDao;
         }
 
         @Override
-        protected Void doInBackground(SaumItem... saumItems) {
-            сounterDao.insertSaum(saumItems[0]);
+        protected Void doInBackground(SaumItem...saumItems) {
+            saumDao.insertSaum(saumItems[0]);
             return null;
         }
     }
 
     private static class UpdateTask extends AsyncTask<SaumItem, Void, Void> {
-        private SaumDao сounterDao;
+        private SaumDao saumDao;
 
-        public UpdateTask(SaumDao сounterDao) {
-            this.сounterDao = сounterDao;
+        public UpdateTask(SaumDao saumDao) {
+            this.saumDao = saumDao;
         }
 
         @Override
-        protected Void doInBackground(SaumItem... saumItems) {
-            сounterDao.updateSaum(saumItems[0]);
+        protected Void doInBackground(SaumItem...saumItems) {
+            saumDao.updateSaum(saumItems[0]);
             return null;
         }
     }
 
     private static class DeleteTask extends AsyncTask<SaumItem, Void, Void> {
-        private SaumDao сounterDao;
+        private SaumDao saumDao;
 
-        public DeleteTask(SaumDao сounterDao) {
-            this.сounterDao = сounterDao;
+        public DeleteTask(SaumDao saumDao) {
+            this.saumDao = saumDao;
         }
 
         @Override
-        protected Void doInBackground(SaumItem... saumItems) {
-            сounterDao.deleteSaum(saumItems[0]);
+        protected Void doInBackground(SaumItem...saumItems) {
+            saumDao.deleteSaum(saumItems[0]);
             return null;
         }
     }

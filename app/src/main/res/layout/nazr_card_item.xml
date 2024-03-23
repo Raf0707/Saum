@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.google.android.material.card.MaterialCardView
@@ -30,7 +31,8 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:text="не выполнил обещание"
+                    android:id="@+id/titleNazr"
+                    android:text="не выполненное обещание 1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="8dp"
@@ -43,8 +45,8 @@
                 </TextView>
 
                 <TextView
-                    android:id="@+id/klyatvaObeschaniye"
-                    android:text="<текст обещания>"
+                    android:id="@+id/textNazar"
+                    android:text="текст обещания"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
@@ -85,7 +87,7 @@
             </LinearLayout>
 
             <CheckBox
-                android:id="@+id/wd13muh"
+                android:id="@+id/day1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="false"
@@ -99,7 +101,7 @@
                 app:layout_constraintVertical_bias="0.684" />
 
             <CheckBox
-                android:id="@+id/wd14muh"
+                android:id="@+id/day2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="false"
@@ -113,7 +115,7 @@
                 app:layout_constraintVertical_bias="0.684" />
 
             <CheckBox
-                android:id="@+id/wd15muh"
+                android:id="@+id/day3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="false"
@@ -127,7 +129,7 @@
                 app:layout_constraintVertical_bias="0.684" />
 
             <com.google.android.material.progressindicator.LinearProgressIndicator
-                android:id="@+id/progressWDMuh"
+                android:id="@+id/progressNazr"
                 android:layout_width="match_parent"
                 android:layout_marginRight="90dp"
                 android:layout_marginLeft="35dp"
@@ -146,6 +148,54 @@
                 app:trackCornerRadius="16dp"
                 app:trackThickness="4dp" />
 
+            <CheckBox
+                android:id="@+id/done"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:textSize="19sp"
+                android:scaleX="1.70"
+                android:scaleY="1.70"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.956"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.92" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/deleteNazrItem"
+                style="@style/Widget.Material3.Button.IconButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                app:iconGravity="textEnd"
+                app:icon="@drawable/baseline_delete_forever_24"
+                android:visibility="visible"
+                app:cornerRadius="28dp"
+                app:iconSize="40dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.946"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.064" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/editNazrItem"
+                style="@style/Widget.Material3.Button.IconButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                app:iconGravity="textEnd"
+                app:icon="@drawable/baseline_edit_24"
+                android:visibility="visible"
+                app:cornerRadius="28dp"
+                app:iconSize="40dp"
+                app:layout_constraintHorizontal_bias="0.946"
+                app:layout_constraintVertical_bias="0.464"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
