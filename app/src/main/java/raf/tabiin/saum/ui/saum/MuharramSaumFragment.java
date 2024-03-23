@@ -94,7 +94,7 @@ public class MuharramSaumFragment extends Fragment {
                 JSONObject dayObject = jsonArray.getJSONObject(i);
                 String day;
                 if (i == 9) {
-                    day = dayObject.getString("day") + " День Ашура";
+                    day = dayObject.getString("day");// + " День Ашура";
                 } else {
                     day = dayObject.getString("day");
                 }

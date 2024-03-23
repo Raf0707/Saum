@@ -8,6 +8,22 @@
     tools:context="raf.tabiin.saum.ui.saum.MuharramSaumFragment">
 
 
+    <TextView
+        style="@style/Theme.Ramadan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:gravity="center"
+        android:text="10-й день этого месяца - День Ашура. Поститься необходимо либо в 9-й и 10-й дни, либо в 10-й и 11-й дни. \n Поститься только в День Ашура считается макрух (порицаемым)"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/recycler_view_Muharram_days"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.584" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_Muharram_days"
         android:layout_width="match_parent"
@@ -28,7 +44,6 @@
         android:layout_height="70dp"
         android:gravity="center"
         android:text="30"
-
         android:textSize="50sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
