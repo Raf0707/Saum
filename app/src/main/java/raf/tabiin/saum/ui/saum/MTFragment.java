@@ -16,6 +16,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.SearchView;
 import android.widget.TextView;
+import android.widget.Toolbar;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
@@ -96,6 +97,18 @@ public class MTFragment extends Fragment implements SaumAdapter.HandleCounterCli
             b.searchSaums.clearFocus();
         });
 
+        /*
+        Toolbar toolbar = requireActivity().findViewById(R.id.toolbar);
+        toolbar.setOnMenuItemClickListener(item -> {
+            if (item.getItemId() == R.id.settings) {
+                // Вызов метода сохранения данных
+                saumViewModel.update(saumItem);
+                return true;
+            }
+            return false;
+        });
+         */
+
         initRecycleView();
         initViewModel();
         saumViewModel.getAllSaumList();
@@ -148,7 +161,7 @@ public class MTFragment extends Fragment implements SaumAdapter.HandleCounterCli
             saumProgress.setText(String.valueOf(saumForEdit.progress));
             saumDone.setChecked(saumForEdit.completed);
 
-            //saumViewModel.update(saumForEdit);
+            saumViewModel.update(saumForEdit);
         }
 
         alert.setNegativeButton("Отмена", (dialogInterface, i) -> {
@@ -206,7 +219,7 @@ public class MTFragment extends Fragment implements SaumAdapter.HandleCounterCli
     }
 
     @Override
-    public void itemClick(SaumItem counterItem) {
+    public void itemClick(SaumItem saumItem) {
 
     }
 

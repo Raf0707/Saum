@@ -23,7 +23,7 @@ public abstract class SaumDatabase extends RoomDatabase {
                             SaumDatabase.class, "saum_database")
                     .allowMainThreadQueries()
                     .setJournalMode(JournalMode.TRUNCATE)
-                    .fallbackToDestructiveMigration()
+                    //.fallbackToDestructiveMigration()
                     .build();
         }
         return INSTANCE;

@@ -44,18 +44,6 @@ public class SaumItem implements Serializable {
         this.completed = completed;
     }
 
-
-
-
-
-    /*
-    public SaumItem(String day, String month) {
-        this.day = day;
-        this.month = month;
-    }
-
-     */
-
     public String getDay() {
         return day;
     }

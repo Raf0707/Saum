@@ -49,6 +49,8 @@ public class SaumAdapter extends RecyclerView.Adapter<SaumAdapter.MyViewHolder> 
         holder.binding.monthSaum.setText(new StringBuilder()
                 .append(this.saumList.get(position).month).toString());
         holder.binding.done.setOnCheckedChangeListener((buttonView, isChecked) -> onCountCheck(isChecked, holder));
+
+        //holder.binding.done.setChecked(this.saumList.get(position).completed);
         //holder.binding.progressMT.setProgress(this.saumList.get(position).progress);
 
 
@@ -86,6 +88,7 @@ public class SaumAdapter extends RecyclerView.Adapter<SaumAdapter.MyViewHolder> 
             isChecked = false;
             holder.binding.done.setChecked(isChecked);
         }
+
     }
 
 

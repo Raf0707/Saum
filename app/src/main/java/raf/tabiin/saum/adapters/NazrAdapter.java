@@ -162,7 +162,7 @@ public class NazrAdapter extends RecyclerView.Adapter<NazrAdapter.MyViewHolder> 
             holder.binding.done.setChecked(isChecked);
         }
 
-
+        // доработать
         if (day1.isChecked() && day2.isChecked() && day3.isChecked()) {
             holder.binding.done.setChecked(true);
         } else {
