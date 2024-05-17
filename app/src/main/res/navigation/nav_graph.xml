@@ -49,6 +49,9 @@
         <action
             android:id="@+id/action_mainSaumFragment_to_nazrFragment"
             app:destination="@id/nazrFragment" />
+        <action
+            android:id="@+id/action_mainSaumFragment_to_kafaratSaumFragment"
+            app:destination="@id/kafaratSaumFragment" />
     </fragment>
     <fragment
         android:id="@+id/ramadanSaumFragment"
@@ -110,4 +113,9 @@
         android:name="raf.tabiin.saum.ui.saum.NazrFragment"
         android:label="Пост за невыполненное обещание"
         tools:layout="@layout/fragment_nazr" />
+    <fragment
+        android:id="@+id/kafaratSaumFragment"
+        android:name="raf.tabiin.saum.ui.saum.KafaratSaumFragment"
+        android:label="Пост Кафарат"
+        tools:layout="@layout/fragment_saum_kafarat" />
 </navigation>

@@ -131,6 +131,7 @@ public class MainActivity extends AppCompatActivity {
         copyAssetIfNeeded("shaawal_days.json", internalDir);
         copyAssetIfNeeded("muharram_days.json", internalDir);
         copyAssetIfNeeded("zulhija_days.json", internalDir);
+        copyAssetIfNeeded("kaffarat_days.json", internalDir);
     }
 
     private void copyAssetIfNeeded(String fileName, File destinationDir) {
