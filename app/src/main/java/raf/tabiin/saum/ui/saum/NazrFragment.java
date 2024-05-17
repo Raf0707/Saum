@@ -67,6 +67,11 @@ public class NazrFragment extends Fragment {
                 nazrForEdit = nazrItem;
                 onMaterialAlert(true);
             }
+
+            @Override
+            public void updateItem(NazrItem nazrItem) {
+                nazrViewModel.update(nazrItem);
+            }
         });
 
         nazrViewModel = new ViewModelProvider(this,
@@ -111,7 +116,7 @@ public class NazrFragment extends Fragment {
 
         initRecycleView();
         initViewModel();
-        nazrViewModel.getAllNazrList();
+        nazrViewModel.getNazrlistObserver();
 
         return b.getRoot();
     }

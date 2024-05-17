@@ -18,64 +18,89 @@ public class SaumRepository {
     public SaumRepository(Application application) {
         SaumDatabase saumDatabase = SaumDatabase.getInstance(application);
         saumDao = saumDatabase.saumDao();
-        saumsList = (LiveData<List<SaumItem>>) saumDao.getAllSaums();
+        saumsList = saumDao.getAllSaums();
     }
 
     public void insertData(SaumItem saumItem) {
-        new InsertTask(saumDao).execute(saumItem);
+        new InsertTask(saumDao, this).execute(saumItem);
     }
+
     public void updateData(SaumItem saumItem) {
-        new UpdateTask(saumDao).execute(saumItem);
+        new UpdateTask(saumDao, this).execute(saumItem);
     }
+
     public void deleteData(SaumItem saumItem) {
-        new DeleteTask(saumDao).execute(saumItem);
+        new DeleteTask(saumDao, this).execute(saumItem);
     }
+
     public LiveData<List<SaumItem>> getAllData() {
         return saumsList;
     }
+
     public List<SaumItem> findByName(String title) {
         return saumDao.findByNames(title);
     }
 
     private static class InsertTask extends AsyncTask<SaumItem, Void, Void> {
         private SaumDao saumDao;
+        private SaumRepository repository;
 
-        public InsertTask(SaumDao saumDao) {
+        public InsertTask(SaumDao saumDao, SaumRepository repository) {
             this.saumDao = saumDao;
+            this.repository = repository;
         }
 
         @Override
-        protected Void doInBackground(SaumItem...saumItems) {
+        protected Void doInBackground(SaumItem... saumItems) {
             saumDao.insertSaum(saumItems[0]);
             return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            repository.saumsList = saumDao.getAllSaums();
         }
     }
 
     private static class UpdateTask extends AsyncTask<SaumItem, Void, Void> {
         private SaumDao saumDao;
+        private SaumRepository repository;
 
-        public UpdateTask(SaumDao saumDao) {
+        public UpdateTask(SaumDao saumDao, SaumRepository repository) {
             this.saumDao = saumDao;
+            this.repository = repository;
         }
 
         @Override
-        protected Void doInBackground(SaumItem...saumItems) {
+        protected Void doInBackground(SaumItem... saumItems) {
             saumDao.updateSaum(saumItems[0]);
             return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            repository.saumsList = saumDao.getAllSaums();
         }
     }
 
     private static class DeleteTask extends AsyncTask<SaumItem, Void, Void> {
         private SaumDao saumDao;
+        private SaumRepository repository;
 
-        public DeleteTask(SaumDao saumDao) {
+        public DeleteTask(SaumDao saumDao, SaumRepository repository) {
             this.saumDao = saumDao;
+            this.repository = repository;
         }
 
         @Override
-        protected Void doInBackground(SaumItem...saumItems) {
+        protected Void doInBackground(SaumItem... saumItems) {
             saumDao.deleteSaum(saumItems[0]);
             return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            repository.saumsList = saumDao.getAllSaums();
         }
     }
 }

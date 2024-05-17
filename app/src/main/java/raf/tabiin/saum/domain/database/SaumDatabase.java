@@ -22,7 +22,7 @@ public abstract class SaumDatabase extends RoomDatabase {
             INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                             SaumDatabase.class, "saum_database")
                     .allowMainThreadQueries()
-                    .setJournalMode(JournalMode.TRUNCATE)
+                    //.setJournalMode(JournalMode.AUTOMATIC)
                     //.fallbackToDestructiveMigration()
                     .build();
         }

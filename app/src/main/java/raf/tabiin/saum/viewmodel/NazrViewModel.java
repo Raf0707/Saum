@@ -37,27 +37,27 @@ public class NazrViewModel extends AndroidViewModel {
     public List<NazrItem> findByNames(String title) {
         return nazrRepository.findByName(title);
     }
-    public LiveData<List<NazrItem>> getAllNazrList() {
+    /*public LiveData<List<NazrItem>> getAllNazrList() {
         return nazrRepository.getAllData();
-    }
+    }*/
 
     public void insert(NazrItem nazrItem) {
         nazrRepository.insertData(nazrItem);
-        getAllNazrList();
+        getNazrlistObserver();
     }
     public void insert(String title, String text) {
         NazrItem nazrItem = new NazrItem(title, text);
         nazrRepository.insertData(nazrItem);
-        getAllNazrList();
+        getNazrlistObserver();
     }
     public void update(NazrItem nazrItem) {
         nazrRepository.updateData(nazrItem);
-        getAllNazrList();
+        getNazrlistObserver();
     }
 
     public void delete(NazrItem nazrItem) {
         nazrRepository.deleteData(nazrItem);
-        getAllNazrList();
+        getNazrlistObserver();
     }
 
 }

@@ -218,10 +218,10 @@ public class MTFragment extends Fragment implements SaumAdapter.HandleCounterCli
         }
     }
 
-    @Override
+    /*@Override
     public void itemClick(SaumItem saumItem) {
 
-    }
+    }*/
 
     @Override
     public void deleteItem(SaumItem saumItem) {
@@ -232,5 +232,10 @@ public class MTFragment extends Fragment implements SaumAdapter.HandleCounterCli
     public void editItem(SaumItem saumItem) {
         this.saumForEdit = saumItem;
         onMaterialAlert(true);
+    }
+
+    @Override
+    public void updateItem(SaumItem saumItem) {
+        saumViewModel.update(saumItem);
     }
 }

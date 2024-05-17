@@ -20,15 +20,11 @@ public class SaumAdapter extends RecyclerView.Adapter<SaumAdapter.MyViewHolder> 
     private List<SaumItem> saumList;
     HandleCounterClick clickListener;
 
-
     public SaumAdapter(Context context, HandleCounterClick clickListener) {
         this.context = context;
         this.clickListener = clickListener;
     }
 
-    public SaumAdapter(Context context) {
-        this.context = context;
-    }
     public void setSaumList(List<SaumItem> saumsList) {
         this.saumList = saumsList;
         notifyDataSetChanged();
@@ -44,56 +40,36 @@ public class SaumAdapter extends RecyclerView.Adapter<SaumAdapter.MyViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        SaumItem saumItem = saumList.get(position);
 
-        holder.binding.daySaum.setText(this.saumList.get(position).day);
-        holder.binding.monthSaum.setText(new StringBuilder()
-                .append(this.saumList.get(position).month).toString());
-        holder.binding.done.setOnCheckedChangeListener((buttonView, isChecked) -> onCountCheck(isChecked, holder));
+        holder.binding.daySaum.setText(saumItem.getDay());
+        holder.binding.monthSaum.setText(saumItem.getMonth());
+        holder.binding.progressMT.setProgress(saumItem.getProgress());
+        holder.binding.done.setChecked(saumItem.isCompleted());
 
-        //holder.binding.done.setChecked(this.saumList.get(position).completed);
-        //holder.binding.progressMT.setProgress(this.saumList.get(position).progress);
-
+        holder.binding.done.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            saumItem.setCompleted(isChecked);
+            saumItem.setProgress(1);
+            clickListener.updateItem(saumItem);
+        });
 
         holder.binding.deleteDBCounterItem.setOnClickListener(v -> {
-            clickListener.deleteItem(saumList.get(position));
+            clickListener.deleteItem(saumItem);
         });
 
         holder.binding.editDBCounterItem.setOnClickListener(v -> {
-            clickListener.editItem(saumList.get(position));
+            clickListener.editItem(saumItem);
         });
-
     }
 
     @Override
     public int getItemCount() {
-        if (saumList == null || saumList.size() == 0) {
-            return 0;
-        } else {
-            return saumList.size();
-        }
+        return saumList == null ? 0 : saumList.size();
     }
-
-
-    public void onCountCheck(boolean isChecked, MyViewHolder holder) {
-        if (isChecked) {
-            holder.binding.progressMT.setProgress(1);
-        } else {
-            holder.binding.progressMT.setProgress(0);
-        }
-
-        if (holder.binding.progressMT.getProgress() == 1) {
-            isChecked = true;
-            holder.binding.done.setChecked(isChecked);
-        } else {
-            isChecked = false;
-            holder.binding.done.setChecked(isChecked);
-        }
-
-    }
-
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         MonThsElementItemBinding binding;
+
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             binding = MonThsElementItemBinding.bind(itemView);
@@ -101,8 +77,9 @@ public class SaumAdapter extends RecyclerView.Adapter<SaumAdapter.MyViewHolder> 
     }
 
     public interface HandleCounterClick {
-        void itemClick(SaumItem counterItem);
         void deleteItem(SaumItem counterItem);
+
         void editItem(SaumItem counterItem);
+        void updateItem(SaumItem counterItem);
     }
 }
