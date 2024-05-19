@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainSaumFragment"
-        android:name="raf.tabiin.saum.ui.saum.MainSaumFragment"
+        android:name="raf.tabiin.saum.ui.navigation.MainSaumFragment"
         android:label="Главная"
         tools:layout="@layout/fragment_main_saum" >
         <action
@@ -52,6 +52,9 @@
         <action
             android:id="@+id/action_mainSaumFragment_to_kafaratSaumFragment"
             app:destination="@id/kafaratSaumFragment" />
+        <action
+            android:id="@+id/action_mainSaumFragment_to_dawoodSaumFragment"
+            app:destination="@id/dawoodSaumFragment" />
     </fragment>
     <fragment
         android:id="@+id/ramadanSaumFragment"
@@ -118,4 +121,9 @@
         android:name="raf.tabiin.saum.ui.saum.KafaratSaumFragment"
         android:label="Пост Кафарат"
         tools:layout="@layout/fragment_saum_kafarat" />
+    <fragment
+        android:id="@+id/dawoodSaumFragment"
+        android:name="raf.tabiin.saum.ui.saum.DawoodSaumFragment"
+        android:label="fragment_dawood_saum"
+        tools:layout="@layout/fragment_dawood_saum" />
 </navigation>

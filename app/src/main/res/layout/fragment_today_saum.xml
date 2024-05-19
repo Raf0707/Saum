@@ -8,6 +8,22 @@
     tools:context=".ui.saum.TodaySaumFragment">
 
     <TextView
+        android:id="@+id/suhurMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:ellipsize="marquee"
+        android:gravity="center"
+        android:text="Не забудьте встать на сухур за 30 мин до фаджра"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timeRemaining"
+        app:layout_constraintVertical_bias="0.641" />
+
+    <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,7 +39,7 @@
         app:layout_constraintVertical_bias="0.022" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/suhsrIftarTimeMessage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ellipsize="marquee"
@@ -38,7 +54,7 @@
         app:layout_constraintVertical_bias="0.192" />
 
     <TextView
-        android:id="@+id/timeLeft"
+        android:id="@+id/timeRemaining"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ellipsize="marquee"
@@ -49,7 +65,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/suhsrIftarTimeMessage"
         app:layout_constraintVertical_bias="0.109" />
 
     <TextView

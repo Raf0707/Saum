@@ -1,4 +1,4 @@
-package raf.tabiin.saum.ui.saum;
+package raf.tabiin.saum.ui.navigation;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -64,6 +64,10 @@ public class MainSaumFragment extends Fragment {
 
         binding.kafaratSaumCard.setOnClickListener(v -> {
             navController.navigate(R.id.action_mainSaumFragment_to_kafaratSaumFragment);
+        });
+
+        binding.daudSaumCard.setOnClickListener(v -> {
+            navController.navigate(R.id.action_mainSaumFragment_to_dawoodSaumFragment);
         });
     }
 

@@ -5,45 +5,31 @@ import static android.text.TextUtils.lastIndexOf;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.splashscreen.SplashScreen;
 import androidx.navigation.NavController;
+import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import android.icu.util.IslamicCalendar;
 
-import android.content.res.AssetManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.Window;
 
 import com.google.android.material.color.DynamicColors;
 
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
 import raf.tabiin.saum.databinding.ActivityMainBinding;
-import raf.tabiin.saum.ui.about_app.AppAboutFragment;
-import raf.tabiin.saum.ui.dua.DuaFragment;
-import raf.tabiin.saum.ui.saum.MainSaumFragment;
-import raf.tabiin.saum.ui.saum.RamadanSaumFragment;
 import raf.tabiin.saum.util.FileUtils;
 import raf.tabiin.saum.util.SharedPreferencesUtils;
 
@@ -110,6 +96,10 @@ public class MainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.settings) {
             NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+            NavDestination currentDestination = navController.getCurrentDestination();
+            if (currentDestination != null && currentDestination.getId() == R.id.settingsFragment) {
+                return true;
+            }
             navController.navigate(R.id.settingsFragment2);
             return true;
         }
