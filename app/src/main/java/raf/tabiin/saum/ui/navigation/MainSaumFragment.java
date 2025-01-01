@@ -69,6 +69,10 @@ public class MainSaumFragment extends Fragment {
         binding.daudSaumCard.setOnClickListener(v -> {
             navController.navigate(R.id.action_mainSaumFragment_to_dawoodSaumFragment);
         });
+
+        binding.saumInfoCard.setOnClickListener(v -> {
+            navController.navigate(R.id.action_mainSaumFragment_to_halalAndHaramDaysSaumFragment);
+        });
     }
 
 }

@@ -55,6 +55,9 @@
         <action
             android:id="@+id/action_mainSaumFragment_to_dawoodSaumFragment"
             app:destination="@id/dawoodSaumFragment" />
+        <action
+            android:id="@+id/action_mainSaumFragment_to_halalAndHaramDaysSaumFragment"
+            app:destination="@id/halalAndHaramDaysSaumFragment" />
     </fragment>
     <fragment
         android:id="@+id/ramadanSaumFragment"
@@ -124,6 +127,11 @@
     <fragment
         android:id="@+id/dawoodSaumFragment"
         android:name="raf.tabiin.saum.ui.saum.DawoodSaumFragment"
-        android:label="fragment_dawood_saum"
+        android:label="Пост Дауда, мир ему"
         tools:layout="@layout/fragment_dawood_saum" />
+    <fragment
+        android:id="@+id/halalAndHaramDaysSaumFragment"
+        android:name="raf.tabiin.saum.ui.saum.HalalAndHaramDaysSaumFragment"
+        android:label="Разрешенные и запрещенные дни поста"
+        tools:layout="@layout/fragment_halal_and_haram_days_saum" />
 </navigation>

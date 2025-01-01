@@ -34,6 +34,8 @@ public class TodaySaumFragment extends Fragment {
     private static final String FAJR_KEY = "fajrTime";
     private static final String MAGHRIB_KEY = "maghribTime";
 
+    private boolean isUserTyping = false;
+
     FragmentTodaySaumBinding b;
     private Handler handler = new Handler(Looper.getMainLooper());
     private Runnable updateTimeTask;
@@ -49,8 +51,12 @@ public class TodaySaumFragment extends Fragment {
         updateTimeTask = new Runnable() {
             @Override
             public void run() {
-                updateRemainingTime();
-                handler.postDelayed(this, 1000);
+                if (!fieldsNotEmpty()) {
+                    Snackbar.make(b.getRoot(), "Заполните все поля",Snackbar.LENGTH_SHORT).show();
+                } else {
+                    updateRemainingTime();
+                    handler.postDelayed(this, 1000);
+                }
             }
         };
 
@@ -98,7 +104,12 @@ public class TodaySaumFragment extends Fragment {
                 }
 
                 saveTime();
+                updateRemainingTime();
             }
+
+            saveTime();
+            loadTime();
+            updateRemainingTime();
         });
 
         b.hoursMagrib.setOnClickListener(v -> {
@@ -136,6 +147,7 @@ public class TodaySaumFragment extends Fragment {
             b.minuteMagrib.getText().clear();
         });
 
+        setCursorVisibilityListeners();
 
         return b.getRoot();
     }
@@ -187,8 +199,23 @@ public class TodaySaumFragment extends Fragment {
         alert.show();
     }
 
+
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void updateRemainingTime() {
+        // Если пользователь вводит данные, не обновляем время
+        /*if (isUserTyping) {
+            return;
+        }*/
+
+        // Проверяем, заполнены ли все поля
+        if (!fieldsNotEmpty()) {
+            b.suhsrIftarTimeMessage.setText("Введите время фаджра и магриба полностью");
+            b.timeRemaining.setText("");
+            b.suhurMessage.setVisibility(View.INVISIBLE);
+            return;
+        }
+
         try {
             int fajrHour = Integer.parseInt(b.hoursFajr.getText().toString());
             int fajrMinute = Integer.parseInt(b.minuteFajr.getText().toString());
@@ -217,18 +244,19 @@ public class TodaySaumFragment extends Fragment {
                 b.suhurMessage.setVisibility(View.VISIBLE);
             }
         } catch (NumberFormatException e) {
-            //showSnackbar(b.getRoot(), "Заполните все поля");
-
-        } catch (NullPointerException e) {
-
+            // Обработка ошибки, если поля содержат некорректные данные
+            b.suhsrIftarTimeMessage.setText("Ошибка: некорректные данные");
+            b.timeRemaining.setText("");
+            b.suhurMessage.setVisibility(View.INVISIBLE);
+            e.printStackTrace();
         }
     }
 
     private boolean fieldsNotEmpty() {
         return !b.hoursFajr.getText().toString().isEmpty()
-                && !b.minuteFajr.getText().toString().isEmpty()
-                && !b.hoursMagrib.getText().toString().isEmpty()
-                && !b.minuteMagrib.getText().toString().isEmpty();
+                || !b.minuteFajr.getText().toString().isEmpty()
+                || !b.hoursMagrib.getText().toString().isEmpty()
+                || !b.minuteMagrib.getText().toString().isEmpty();
     }
     private String formatRemainingTime(long seconds) {
         long hours = seconds / 3600;
@@ -242,49 +270,107 @@ public class TodaySaumFragment extends Fragment {
     }
 
     private void setCursorVisibilityListeners() {
-        View.OnClickListener cursorVisibilityListener = v -> {
-            b.hoursFajr.setCursorVisible(true);
-            b.minuteFajr.setCursorVisible(true);
-            b.hoursMagrib.setCursorVisible(true);
-            b.minuteMagrib.setCursorVisible(true);
+        View.OnFocusChangeListener focusListener = new View.OnFocusChangeListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                isUserTyping = hasFocus;
+                if (!hasFocus) {
+                    // Когда пользователь закончил ввод, обновляем время
+                    updateRemainingTime();
+                }
+            }
         };
 
-        b.hoursMagrib.setOnClickListener(cursorVisibilityListener);
-        b.minuteMagrib.setOnClickListener(cursorVisibilityListener);
-        b.hoursFajr.setOnClickListener(cursorVisibilityListener);
-        b.minuteFajr.setOnClickListener(cursorVisibilityListener);
+        b.hoursFajr.setOnFocusChangeListener(focusListener);
+        b.minuteFajr.setOnFocusChangeListener(focusListener);
+        b.hoursMagrib.setOnFocusChangeListener(focusListener);
+        b.minuteMagrib.setOnFocusChangeListener(focusListener);
+    }
+
+    private boolean isTimeValid(int hours, int minutes) {
+        return hours >= 0 && hours < 24 && minutes >= 0 && minutes < 60;
     }
 
     private void saveTime() {
+
+        if (!fieldsNotEmpty()) {
+            Snackbar.make(b.getRoot(), "Заполните все поля", Snackbar.LENGTH_SHORT).show();
+            return;
+        }
+
         SharedPreferences prefs = requireContext().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
 
-        String fajrTime = String.format("%02d:%02d",
-                Integer.parseInt(b.hoursFajr.getText().toString()),
-                Integer.parseInt(b.minuteFajr.getText().toString()));
+        try {
+            String fajrTime = String.format("%02d:%02d",
+                    Integer.parseInt(b.hoursFajr.getText().toString()),
+                    Integer.parseInt(b.minuteFajr.getText().toString()));
 
-        String maghribTime = String.format("%02d:%02d",
-                Integer.parseInt(b.hoursMagrib.getText().toString()),
-                Integer.parseInt(b.minuteMagrib.getText().toString()));
+            String maghribTime = String.format("%02d:%02d",
+                    Integer.parseInt(b.hoursMagrib.getText().toString()),
+                    Integer.parseInt(b.minuteMagrib.getText().toString()));
 
-        editor.putString(FAJR_KEY, fajrTime);
-        editor.putString(MAGHRIB_KEY, maghribTime);
-        editor.apply();
+            editor.putString(FAJR_KEY, fajrTime);
+            editor.putString(MAGHRIB_KEY, maghribTime);
+            editor.apply();
+        } catch (NumberFormatException e) {
+            // Если возникло исключение, сохраняем пустые строки
+            editor.putString(FAJR_KEY, "");
+            editor.putString(MAGHRIB_KEY, "");
+            editor.apply();
+        }
     }
 
     private void loadTime() {
         SharedPreferences prefs = requireContext().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
 
-        String fajrTime = prefs.getString(FAJR_KEY, "00:00");
-        String maghribTime = prefs.getString(MAGHRIB_KEY, "00:00");
+        // Получаем сохраненные значения
+        String fajrTime = prefs.getString(FAJR_KEY, ""); // По умолчанию пустая строка
+        String maghribTime = prefs.getString(MAGHRIB_KEY, ""); // По умолчанию пустая строка
 
-        String[] fajrParts = fajrTime.split(":");
-        String[] maghribParts = maghribTime.split(":");
+        // Если есть сохраненное время для фаджра, загружаем его
+        if (!fajrTime.isEmpty()) {
+            try {
+                String[] fajrParts = fajrTime.split(":");
+                if (fajrParts.length == 2) {
+                    b.hoursFajr.setText(fajrParts[0]);
+                    b.minuteFajr.setText(fajrParts[1]);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                // Если что-то пошло не так, оставляем поле пустым
+                b.hoursFajr.setText("");
+                b.minuteFajr.setText("");
+            }
+        } else {
+            // Если данных нет, оставляем поле пустым
+            b.hoursFajr.setText("");
+            b.minuteFajr.setText("");
+        }
 
-        b.hoursFajr.setText(fajrParts[0]);
-        b.minuteFajr.setText(fajrParts[1]);
-        b.hoursMagrib.setText(maghribParts[0]);
-        b.minuteMagrib.setText(maghribParts[1]);
+        // Если есть сохраненное время для магриба, загружаем его
+        if (!maghribTime.isEmpty()) {
+            try {
+                String[] maghribParts = maghribTime.split(":");
+                if (maghribParts.length == 2) {
+                    b.hoursMagrib.setText(maghribParts[0]);
+                    b.minuteMagrib.setText(maghribParts[1]);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                // Если что-то пошло не так, оставляем поле пустым
+                b.hoursMagrib.setText("");
+                b.minuteMagrib.setText("");
+            }
+        } else {
+            // Если данных нет, оставляем поле пустым
+            b.hoursMagrib.setText("");
+            b.minuteMagrib.setText("");
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            updateRemainingTime();
+        }
     }
 
     private void saveTimeToClipboard(String fajrTime, String maghribTime) {

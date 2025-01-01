@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import raf.tabiin.saum.R;
-import raf.tabiin.saum.databinding.CalendarCellBinding;
 import raf.tabiin.saum.util.OnSwipeTouchListener;
 
 public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.CalendarViewHolder> {
@@ -28,8 +27,6 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.Calend
     public CalendarViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View view = layoutInflater.inflate(R.layout.calendar_cell, parent, false);
-        ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
-        layoutParams.height = (int) (parent.getHeight() * 0.16666666666); // Adjust height for 6 rows
         return new CalendarViewHolder(view, itemListener);
     }
 
@@ -54,7 +51,7 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.Calend
 
         public CalendarViewHolder(@NonNull View itemView, OnItemListener itemListener) {
             super(itemView);
-            dayOfMonth = itemView.findViewById(R.id.sellDayText); // Updated to match the XML id
+            dayOfMonth = itemView.findViewById(R.id.cellDayText);
 
             itemView.setOnTouchListener(new OnSwipeTouchListener(itemView.getContext()) {
                 @Override

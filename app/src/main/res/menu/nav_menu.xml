@@ -13,11 +13,6 @@
         android:title="Ду'а" />
 
     <item
-        android:id="@+id/hadithSaumFragment"
-        android:icon="@drawable/baseline_auto_stories_24"
-        android:title="Хадисы о посте" />
-
-    <item
         android:id="@+id/appAboutFragment"
         android:icon="@drawable/ic_vector_info"
         android:title="О приложении" />

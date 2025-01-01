@@ -30,7 +30,6 @@ public class SettingsFragment extends Fragment {
         binding.appThemeRadioGroup.check(SharedPreferencesUtils.getInteger(requireContext(), "checkedButton", R.id.setFollowSystemTheme));
         binding.dynamicColorsSwitch.setEnabled(DynamicColors.isDynamicColorAvailable());
         switchMaterial.setChecked(SharedPreferencesUtils.getBoolean(requireContext(), "useDynamicColors"));
-        binding.addFollowSystemIconOnMain.setChecked(SharedPreferencesUtils.getBoolean(requireContext(), "addFollowSystemIcon"));
 
         //int[] setNightModeDescription = {R.string.auto_theme_description, R.string.system_theme_description, R.string.light_theme_description, R.string.night_theme_description};
         //binding.themeDescription.setText(setNightModeDescription[SharedPreferencesUtils.getInteger(requireContext(), "nightMode", 1)]);
@@ -63,11 +62,6 @@ public class SettingsFragment extends Fragment {
                     requireActivity().recreate();
                     break;
             }
-        });
-
-        binding.addFollowSystemIconOnMain.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            SharedPreferencesUtils.saveBoolean(requireContext(), "addFollowSystemIcon", isChecked);
-            //requireActivity().recreate();
         });
 
         switchMaterial.setOnCheckedChangeListener((buttonView, isChecked) -> {
