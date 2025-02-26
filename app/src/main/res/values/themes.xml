@@ -168,5 +168,10 @@
         <item name="android:windowExitAnimation">@anim/fade_out</item>
     </style>
 
+    <style name="CustomShapeAppearance">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">24dp</item>
+    </style>
+
 
 </resources>

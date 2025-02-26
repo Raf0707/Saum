@@ -40,9 +40,9 @@
         <action
             android:id="@+id/action_mainSaumFragment_to_muharramSaumFragment"
             app:destination="@id/muharramSaumFragment" />
-        <action
+        <!--action
             android:id="@+id/action_mainSaumFragment_to_todaySaumFragment"
-            app:destination="@id/todaySaumFragment" />
+            app:destination="@id/todaySaumFragment" /-->
         <action
             android:id="@+id/action_mainSaumFragment_to_shaawalSaumFragment"
             app:destination="@id/shaawalSaumFragment" />
@@ -109,11 +109,11 @@
         android:name="raf.tabiin.saum.ui.saum.MuharramSaumFragment"
         android:label="Пост в месяц Мухаррам"
         tools:layout="@layout/fragment_muharram_saum" />
-    <fragment
+    <!--fragment
         android:id="@+id/todaySaumFragment"
         android:name="raf.tabiin.saum.ui.saum.TodaySaumFragment"
         android:label="Пост Сегодня "
-        tools:layout="@layout/fragment_today_saum" />
+        tools:layout="@layout/fragment_today_saum" /-->
     <fragment
         android:id="@+id/nazrFragment"
         android:name="raf.tabiin.saum.ui.saum.NazrFragment"

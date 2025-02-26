@@ -30,9 +30,9 @@ public class MainSaumFragment extends Fragment {
 
         NavController navController = Navigation.findNavController(view);
 
-        binding.todaySaumCard.setOnClickListener(v -> {
+        /*binding.todaySaumCard.setOnClickListener(v -> {
             navController.navigate(R.id.action_mainSaumFragment_to_todaySaumFragment);
-        });
+        });*/
 
         binding.ramadanSaumCard.setOnClickListener(v -> {
             navController.navigate(R.id.action_mainSaumFragment_to_ramadanSaumFragment);

@@ -1,6 +1,6 @@
 package raf.tabiin.saum.ui.saum;
 
-import android.content.Context;
+/*import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
@@ -204,9 +204,7 @@ public class TodaySaumFragment extends Fragment {
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void updateRemainingTime() {
         // Если пользователь вводит данные, не обновляем время
-        /*if (isUserTyping) {
-            return;
-        }*/
+
 
         // Проверяем, заполнены ли все поля
         if (!fieldsNotEmpty()) {
@@ -428,4 +426,4 @@ public class TodaySaumFragment extends Fragment {
         saveTime();
         super.onResume();
     }
-}
+}*/

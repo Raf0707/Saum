@@ -21,6 +21,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.navigation.NavController;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -121,15 +122,15 @@ public class AppAboutFragment extends Fragment {
 
         binding.rateBtn.setOnLongClickListener(v -> {
             addOnClick(v, "RuStore link rate copied",
-                    ClipData.newPlainText(getString(R.string.rateApp),
-                            "https://apps.rustore.ru/app/ru.tabiin.counters"));
+                    ClipData.newPlainText("https://apps.rustore.ru/app/ru.tabiin.saum",
+                            "https://apps.rustore.ru/app/ru.tabiin.saum"));
             return true;
         });
 
         binding.vkGroupBtn.setOnLongClickListener(v -> {
             addOnClick(v, getString(R.string.vk_tabiin_coyplink),
                     ClipData.newPlainText(getString(R.string.getContext),
-                            getString(R.string.tabiin)));
+                            "https://vk.com/mahabbaa"));
             return true;
         });
 
@@ -141,9 +142,9 @@ public class AppAboutFragment extends Fragment {
         });
 
         binding.otherAppsBtn.setOnLongClickListener(v -> {
-            addOnClick(v, "Tabiin's Apps article link copied",
+            addOnClick(v, "https://www.rustore.ru/catalog/developer/90b1826e",
                     ClipData.newPlainText(getString(R.string.getContext),
-                            getString(R.string.tabiin_android_dev)));
+                            "https://www.rustore.ru/catalog/developer/90b1826e"));
             return true;
         });
 
@@ -194,104 +195,62 @@ public class AppAboutFragment extends Fragment {
 
         binding.rateBtn.setOnClickListener(v -> new CustomTabUtil()
             .openCustomTab(getActivity(),
-                    getString(R.string.rateApp),
+                    "https://apps.rustore.ru/app/ru.tabiin.saum",
                     R.color.purple_300));
 
 
         binding.vkGroupBtn.setOnClickListener(v -> new CustomTabUtil()
                 .openCustomTab(getActivity(),
-                        getString(R.string.tabiin),
+                        "https://vk.com/mahabbaa",
                         R.color.purple_300));
 
         binding.otherAppsBtn.setOnClickListener(v -> new CustomTabUtil()
             .openCustomTab(getActivity(),
-                    getString(R.string.tabiin_android_dev),
+                    "https://www.rustore.ru/catalog/developer/90b1826e",
                     R.color.purple_300));
-
-        binding.settingsBtn.setOnClickListener(v -> {
-            /* changeFragment(getActivity(),
-                    new SettingsFragment(),
-                    R.id.containerFragment,
-                    savedInstanceState); */
-        });
 
         binding.donateBtn.setOnClickListener(v -> new CustomTabUtil().openCustomTab(getActivity(),
                 "https://www.donationalerts.com/r/raf0707", R.color.md_theme_light_onSecondary));
 
         binding.tgGroupBtn.setOnClickListener(v -> new CustomTabUtil()
-                .openCustomTab(getActivity(), "https://t.me/+QTIZZFhT__ZjMmFi",
+                .openCustomTab(getActivity(), "https://t.me/ibnRustum",
                         R.color.md_theme_light_onSecondary));
 
         binding.tgGroupBtn.setOnLongClickListener(v -> {
-            addOnClick(v, getString(R.string.tg_tabiin_coyplink),
+            addOnClick(v, "https://t.me/ibnRustum",
                     ClipData.newPlainText(getString(R.string.getContext),
-                            getString(R.string.tgLink)));
+                            "https://t.me/ibnRustum"));
             return true;
         });
 
-        binding.downloadUmmaLifeGooglePlay.setOnClickListener(v -> {
+        binding.downloadQuran7HoursInRuStore.setOnClickListener(v -> {
             try {
                 startActivity(new Intent(Intent.ACTION_VIEW,
-                        Uri.parse("https://play.google.com/store/apps/details?id=com.ummalife.android")));
+                        Uri.parse("https://www.rustore.ru/catalog/app/raf.console.quran7hours")));
             } catch (android.content.ActivityNotFoundException anfe) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.GOOGLE_PLAY))));
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.rustore.ru/catalog/app/raf.console.quran7hours")));
             }
         });
 
-        binding.downloadUmmaLifeGooglePlay.setOnLongClickListener(v -> {
-            addOnClick(v, "Umma Life download link copied",
+        binding.downloadQuran7HoursInRuStore.setOnLongClickListener(v -> {
+            addOnClick(v, "Quran 7 Hours download link copied",
                     ClipData.newPlainText(getString(R.string.getContext),
-                            "https://play.google.com/store/apps/details?id=com.ummalife.android"));
+                            "https://www.rustore.ru/catalog/app/raf.console.quran7hours"));
             return true;
         });
 
-        binding.vkUmmaLife.setOnClickListener(v -> new CustomTabUtil()
+        binding.tgQuranHafiz.setOnClickListener(v -> new CustomTabUtil()
                 .openCustomTab(getActivity(),
-                        "https://vk.com/ummalife_com?ysclid=lfot4irl1443773327",
+                        "https://t.me/hafiz_notes",
                         R.color.purple_300));
 
-        binding.vkUmmaLife.setOnLongClickListener(v -> {
-            addOnClick(v, "VK-Group Umma Life link copied",
-                    ClipData.newPlainText(getString(R.string.getContext),
-                            "https://vk.com/ummalife_com?ysclid=lfot4irl1443773327"));
-            return true;
-        });
-
-        binding.tgUmmaLife.setOnClickListener(v -> new CustomTabUtil()
-                .openCustomTab(getActivity(),
-                        "https://t.me/man_umma",
-                        R.color.purple_300));
-
-        binding.tgUmmaLife.setOnLongClickListener(v -> {
+        binding.tgQuranHafiz.setOnLongClickListener(v -> {
             addOnClick(v, "Telegram-Group Umma Life link copied",
                     ClipData.newPlainText(getString(R.string.getContext),
-                            "https://t.me/man_umma"));
+                            "https://t.me/hafiz_notes"));
             return true;
         });
 
-        binding.webUmmaLife.setOnClickListener(v -> new CustomTabUtil()
-                .openCustomTab(getActivity(),
-                        "https://ummalife.com",
-                        R.color.purple_300));
-
-        binding.webUmmaLife.setOnLongClickListener(v -> {
-            addOnClick(v, "Website Umma Life link copied",
-                    ClipData.newPlainText(getString(R.string.getContext),
-                            "https://ummalife.com"));
-            return true;
-        });
-
-        binding.weAreInUmmaLife.setOnClickListener(v -> new CustomTabUtil()
-                .openCustomTab(getActivity(),
-                        "https://ummalife.com/tabiin",
-                        R.color.purple_300));
-
-        binding.weAreInUmmaLife.setOnLongClickListener(v -> {
-            addOnClick(v, "Tabiin group in Umma Life link copied",
-                    ClipData.newPlainText(getString(R.string.getContext),
-                            "https://ummalife.com/tabiin"));
-            return true;
-        });
 
         binding.sourceCodeBtnNames.setOnClickListener(v -> new CustomTabUtil()
                 .openCustomTab(getActivity(),
@@ -317,29 +276,6 @@ public class AppAboutFragment extends Fragment {
             return true;
         });
 
-        binding.sourceCodeBtnCounters.setOnClickListener(v -> new CustomTabUtil()
-                .openCustomTab(getActivity(),
-                        "https://github.com/Raf0707/Counters",
-                        R.color.purple_300));
-
-        binding.sourceCodeBtnCounters.setOnLongClickListener(v -> {
-            addOnClick(v, "link to download Counters copied",
-                    ClipData.newPlainText(getString(R.string.getContext),
-                            "https://github.com/Raf0707/Counters"));
-            return true;
-        });
-
-        binding.downloadCountersApp.setOnClickListener(v -> new CustomTabUtil()
-                .openCustomTab(getActivity(),
-                        "https://apps.rustore.ru/app/ru.tabiin.counters",
-                        R.color.purple_300));
-
-        binding.downloadCountersApp.setOnLongClickListener(v -> {
-            addOnClick(v, "link to Counters sourse copied",
-                    ClipData.newPlainText(getString(R.string.getContext),
-                            "https://apps.rustore.ru/app/ru.tabiin.counters"));
-            return true;
-        });
     }
 
     public void addOnClick(View view, String text, ClipData clipData) {
