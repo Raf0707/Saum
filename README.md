@@ -2,21 +2,21 @@
 <h2 align="center">from Tabiin</h2>
 
 <p align="center">
-  <a href="https://github.com/Raf0707/Ramadan" style="text-decoration:none" area-label="Android">
+  <a href="https://github.com/Raf0707/Saum" style="text-decoration:none" area-label="Android">
     <img src="https://img.shields.io/badge/Platform-Android-green.svg">
   </a>
-  <a href="https://github.com/Raf0707/Ramadan.git" style="text-decoration:none" area-label="Min API: 22">
+  <a href="https://github.com/Raf0707/Saum.git" style="text-decoration:none" area-label="Min API: 22">
     <img src="https://img.shields.io/badge/minSdkVersion-22-green.svg">
   </a>
   <a href="https://apps.rustore.ru/app/raf.tabiin.saum" style="text-decoration:none" area-label="RuStore">
     <img src="https://img.shields.io/badge/Download-RuStore-green">
   </a>
-  <a href="https://github.com/Raf0707/Ramadan/blob/master/LICENSE.md" style="text-decoration:none" area-label="License: Apache License 2.0">
+  <a href="https://github.com/Raf0707/Saum/blob/master/LICENSE.md" style="text-decoration:none" area-label="License: Apache License 2.0">
     <img src="https://img.shields.io/badge/License-Apache License 2.0-blue.svg">
 
 </p>
 
-## 🆕 Material3 Design Ramadan for Android
+## 🆕 Material3 Design Saum for Android
 ## ⚠ Join [@Tabiin/Tabiin.Android-Development](https://t.me/+QTIZZFhT__ZjMmFi) on Telegram for important updates.
 ## 📱 Screenshots
 | <img src="github-files/post_light.jpg" width="200"/> | <img src="github-files/dua_light.jpg" width="200"/> | <img src="github-files/app_about_light.jpg" width="200"/> | <img src="github-files/post_night.jpg" width="200"/> | <img src="github-files/dua_night_n.jpg" width="200"/> |
@@ -27,7 +27,7 @@
 Self-explanatory interface without overloaded menus
 
 ## 📦 Included Features
-- keep a record of fasting in ramadan
+- keep a record of fasting in Saum
 - get up for suhoor before fasting, read the dua for breaking the fast (iftar), do not forget about tarawih prayer and the night of power and predestination
 - join our vk-group Tabiin and get useful knowledge
 
@@ -53,7 +53,7 @@ ___
 you don't need an internet connection to use this app
 
 ## 🗂️ License
-# Ramadan is released under the Apache License 2.0.
+# Saum is released under the Apache License 2.0.
 A permissive license whose main conditions require preservation of copyright and license notices. Contributors provide an express grant of patent rights. Licensed works, modifications, and larger works may be distributed under different terms and without source code.
 
 | Permissions | Limitations| Conditions | 
