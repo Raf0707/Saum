@@ -17,7 +17,7 @@
 </p>
 
 ## 🆕 Material3 Design Saum for Android
-## ⚠ Join [@Tabiin/Tabiin.Android-Development](https://t.me/+QTIZZFhT__ZjMmFi) on Telegram for important updates.
+## ⚠ Это официальное хринилище приложения Saum. Единственным автором и владельцем является Рафаил Кикматулин. Данное приложение публикуется исключительно мной в RuStore.
 ## 📱 Screenshots
 | <img src="github-files/post_light.jpg" width="200"/> | <img src="github-files/dua_light.jpg" width="200"/> | <img src="github-files/app_about_light.jpg" width="200"/> | <img src="github-files/post_night.jpg" width="200"/> | <img src="github-files/dua_night_n.jpg" width="200"/> |
 |:---:|:---:|:---:|:---:|:---:|
